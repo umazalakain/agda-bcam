@@ -42,36 +42,34 @@ https://agda.readthedocs.io/en/v2.6.1.3/getting-started/tutorial-list.html
 **TODO**
 
 - Monday (2.5h):
-- simple types
-- type parameters
-- interaction with the type checker
-- simple function types
-- unicode
-- misfix notation
-- totality checkings
-- inductive data types
-- termination checking
-- dependent types
-- type indices
-- propositional equality
-- equational reasoning
+  - simple types
+  - type parameters
+  - interaction with the type checker
+  - simple function types
+  - unicode
+  - misfix notation
+  - totality checkings
+  - inductive data types
+  - termination checking
+  - dependent types
+  - type indices
+  - propositional equality
+  - equational reasoning
 
 - Tuesday (1.5h):
-- with abstraction
-- runtime assertions become compile-time preconditions
-- proving the correctness of a simple compiler
+  - with abstraction
+  - runtime assertions become compile-time preconditions
+  - proving the correctness of a simple compiler
 
 - Wednesday (2.5h):
-- copatterns
-- module system
-- universe polymorphism
-- local definitions: let and where
-- postulates
-- coinduction
+  - copatterns
+  - module system
+  - universe polymorphism
+  - local definitions: let and where
+  - postulates
+  - coinduction
 
 - Thursday (2.5h):
-- standard library
-- some more involved example
-- other theorem provers
-
-/
+  - standard library
+  - some more involved example
+  - other theorem provers

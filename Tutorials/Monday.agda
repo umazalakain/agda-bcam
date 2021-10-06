@@ -1,4 +1,6 @@
-module Monday where
+{-# OPTIONS --allow-unsolved-metas #-}
+
+module Tutorials.Monday where
 
 
 -- two dashes to comment out the rest of the line
@@ -236,7 +238,7 @@ cong f p = {!!}
 
 -- Introduce equational reasoning
 infix  3 _∎
-infixr 2 _≡⟨⟩_ step-≡ step-≡˘
+infixr 2 step-≡
 infix  1 begin_
 
 begin_ : ∀{x y : A} → x ≡ y → x ≡ y
