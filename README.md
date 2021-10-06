@@ -1,3 +1,6 @@
+
+You can find the Agda source code in browsable HTML [here](https://umazalakain.github.io/agda-bcam/html/Everything.html).
+
 # Programming with evidence
 
 - Agda is a programming language *and** proof assistant
