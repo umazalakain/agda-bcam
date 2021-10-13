@@ -42,6 +42,14 @@ main = hakyllWith config $ do
         >>= loadAndApplyTemplate "templates/default.html" defaultContext
         >>= relativizeUrls
 
+  create ["registration.html"] $ do
+    route idRoute
+    compile $ do
+      makeItem ""
+        >>= loadAndApplyTemplate "templates/registration.html" defaultContext
+        >>= loadAndApplyTemplate "templates/default.html" defaultContext
+        >>= relativizeUrls
+
   match "index.html" $ do
     route idRoute
     compile $ do
