@@ -3,14 +3,14 @@ You can find the Agda source code in browsable HTML [here](https://umazalakain.g
 
 # Programming with evidence
 
-- Agda is a programming language *and** proof assistant
+- Agda is a *programming language and proof assistant*
 - Mainly developed in Chalmers, Sweden
 - Advanced type theoretical prototype language
 - Mostly used in
   - Programming Language Theory
   - Category Theory
   - Homotopy Theory
-- About me: Uma Zalakain (https://umazalakain.info)
+- About me: Uma Zalakain (<https://umazalakain.info>)
 
 ## Timetable
 
@@ -21,7 +21,7 @@ You can find the Agda source code in browsable HTML [here](https://umazalakain.g
   - Thu 15:00 - 17:30 (with ~15 minute break)
   - Fri: it depends
 
-- Talk (political propaganda):
+- Talk (propaganda):
   - Tue 16:30 - 17:30
 
 ## Format of the tutorials
@@ -29,16 +29,16 @@ You can find the Agda source code in browsable HTML [here](https://umazalakain.g
 - I will set some daily exercises
 - The exercises give you experience interacting with Agda!
 - Installing Agda+Emacs depends on your system:
-follow https://agda.readthedocs.io/en/v2.6.1.3/getting-started/installation.html
+follow <https://agda.readthedocs.io/en/v2.6.1.3/getting-started/installation.html>
 - I will take questions about exercises at the beginning of the tutorials
 
 ## Lecture notes and exercises
 
-https://github.com/umazalakain/agda-bcam
+<https://github.com/umazalakain/agda-bcam>
 
 ## Resources
 
-https://agda.readthedocs.io/en/v2.6.1.3/getting-started/tutorial-list.html
+<https://agda.readthedocs.io/en/v2.6.1.3/getting-started/tutorial-list.html>
 
 ## Syllabus
 
