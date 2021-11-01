@@ -167,11 +167,6 @@ variable
   ℓ : Level
   A B C : Set ℓ
 
--- Function composition: (f ∘ g) composes two functions f and g
--- The result takes the input, feeds it through g, then feeds the result through f
-_∘_ : (B → C) → (A → B) → (A → C)
-(f ∘ g) x = f (g x)
-
 --------
 -- Inductive data types
 --------
@@ -291,6 +286,12 @@ data EvenData : ℕ → Set where -- Pred ℕ
 -- It leaves a trace of *why* n is even
 half-data : (n : ℕ) → EvenData n → ℕ
 half-data n n-even = {!!}
+
+-- Function composition: (f ∘ g) composes two functions f and g
+-- The result takes the input, feeds it through g, then feeds the result through f
+infixr 20 _∘_
+_∘_ : (B → C) → (A → B) → (A → C)
+(f ∘ g) x = f (g x)
 
 --------
 -- Example of common uses of dependent types

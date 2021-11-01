@@ -91,7 +91,10 @@ module Dec where
   zero Fin-≟ zero = yes refl
   zero Fin-≟ suc j = no λ ()
   suc i Fin-≟ zero = no λ ()
-  suc i Fin-≟ suc j = map (yes ∘ cong suc) (λ neq → no (neq ∘ suc-injective)) (i Fin-≟ j)
+  suc i Fin-≟ suc j = map
+    (yes ∘ cong suc)
+    (no ∘ (λ neq → neq ∘ suc-injective))
+    (i Fin-≟ j)
 
   open List using (List; []; _∷_)
 
@@ -102,7 +105,10 @@ module Dec where
   List-≟ _A-≟_ [] [] = yes refl
   List-≟ _A-≟_ [] (y ∷ ys) = no λ ()
   List-≟ _A-≟_ (x ∷ xs) [] = no λ ()
-  List-≟ _A-≟_ (x ∷ xs) (y ∷ ys) = map (yes ∘ curry (cong₂ _∷_)) (no ∘ (λ neq → neq ∘ ∷-injective)) (x A-≟ y ×-dec List-≟ _A-≟_ xs ys)
+  List-≟ _A-≟_ (x ∷ xs) (y ∷ ys) = map
+    (yes ∘ curry (cong₂ _∷_))
+    (no ∘ (λ neq → neq ∘ ∷-injective))
+    (x A-≟ y ×-dec List-≟ _A-≟_ xs ys)
 
 -----------
 -- Interfaces

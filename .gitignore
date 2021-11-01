@@ -1,1 +1,5 @@
+_cache
+dist-newstyle
 *.agdai
+docs
+site/agda/*.html
