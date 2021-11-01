@@ -36,131 +36,136 @@ data Bool : Set where
 -- Simple composite types
 --------
 
-record _×_ (A : Set) (B : Set) : Set where
-  -- AKA logical and, product type
+module Simple where
+  record _×_ (A : Set) (B : Set) : Set where
+    -- AKA logical and, product type
 
-  -- Agda offers support for unicode
-  -- We can input unicode using the backslash \ and (most of the time) typing what one would type in LaTeX
-  -- If in emacs, we can put the cursor over a characted and use M-x describe-char to see how that character is inputted
-  -- × is inputted using \times
+    -- Agda offers support for unicode
+    -- We can input unicode using the backslash \ and (most of the time) typing what one would type in LaTeX
+    -- If in emacs, we can put the cursor over a characted and use M-x describe-char to see how that character is inputted
+    -- × is inputted using \times
 
-  -- Agda offers support for misfix notation
-  -- We use the underscores to specify where the arguments goal
-  -- In this case the arguments are the type parameters A and B, so we can write A × B
+    -- Agda offers support for misfix notation
+    -- We use the underscores to specify where the arguments goal
+    -- In this case the arguments are the type parameters A and B, so we can write A × B
 
-  -- A × B models a type packing up *both* an A *and* a B
-  -- A and B are type parameters, both of type Set, i.e. types
-  -- A × B itself is of type Set, i.e. a type
-  -- We use the single record constructor _,_ to make something of type A × B
-  -- The constructor _,_ takes two parameters: the fields fst and snd, of type A and B, respectively
-  -- If we have a of type A and b of type B, then (a , b) is of type A × B
-  constructor _,_
-  field
-    fst : A
-    snd : B
+    -- A × B models a type packing up *both* an A *and* a B
+    -- A and B are type parameters, both of type Set, i.e. types
+    -- A × B itself is of type Set, i.e. a type
+    -- We use the single record constructor _,_ to make something of type A × B
+    -- The constructor _,_ takes two parameters: the fields fst and snd, of type A and B, respectively
+    -- If we have a of type A and b of type B, then (a , b) is of type A × B
+    constructor _,_
+    field
+      fst : A
+      snd : B
 
--- Agda has a very expressive module system (more on modules later)
--- Every record has a module automatically attached to it
--- Opening a record exposes its constructor and it fields
--- The fields are projection functions out of the record
--- In the case of _×_, it exposes
--- fst : A × B → A
--- snd : A × B → B
-open _×_
+  -- Agda has a very expressive module system (more on modules later)
+  -- Every record has a module automatically attached to it
+  -- Opening a record exposes its constructor and it fields
+  -- The fields are projection functions out of the record
+  -- In the case of _×_, it exposes
+  -- fst : A × B → A
+  -- snd : A × B → B
+  open _×_
 
-data _⊎_ (A B : Set) : Set where
-  -- AKA logical or, sum type, disjoint union
-  -- A ⊎ B models a type packing *either* an A *or* a B
-  -- A and B are type parameters, both of type Set, i.e. types
-  -- A ⊎ B itself is of type Set, i.e. a type
-  -- A ⊎ B has two constructors: inl and inr
-  -- The constructor inl takes something of type A as an argument and returns something of type A ⊎ B
-  -- The constructor inr takes something of type B as an argument and returns something of type A ⊎ B
-  -- We can make something of type A ⊎ B either by using inl and supplying an A, or by using inr and supplying a B
-  inl : A → A ⊎ B
-  inr : B → A ⊎ B
+  data _⊎_ (A B : Set) : Set where
+    -- AKA logical or, sum type, disjoint union
+    -- A ⊎ B models a type packing *either* an A *or* a B
+    -- A and B are type parameters, both of type Set, i.e. types
+    -- A ⊎ B itself is of type Set, i.e. a type
+    -- A ⊎ B has two constructors: inl and inr
+    -- The constructor inl takes something of type A as an argument and returns something of type A ⊎ B
+    -- The constructor inr takes something of type B as an argument and returns something of type A ⊎ B
+    -- We can make something of type A ⊎ B either by using inl and supplying an A, or by using inr and supplying a B
+    inl : A → A ⊎ B
+    inr : B → A ⊎ B
 
 
---------
--- Some simple proofs!
---------
+  --------
+  -- Some simple proofs!
+  --------
 
--- In constructive mathematics logical implication is modelled as function types
--- An object of type A → B shows that assuming an object of type A, we can construct an object of type B
--- Below we want to show that assuming an object of type A × B, we can construct an object of type A
--- We want to show that this is the case regardless of what A and B actually are
--- We do this using a polymorphic function that is parametrised over A and B, both of type Set
--- We use curly braces {} to make these function parameters implicit
--- When we call this function we won't have to supply the arguments A and B unless we want to
--- When we define this function we won't have to accept A and B as arguments unless we want to
--- The first line below gives the type of the function get-fst
--- The second line gives its definition
-get-fst : {A : Set} {B : Set} → A × B → A
-get-fst x = {!!}
+  -- In constructive mathematics logical implication is modelled as function types
+  -- An object of type A → B shows that assuming an object of type A, we can construct an object of type B
+  -- Below we want to show that assuming an object of type A × B, we can construct an object of type A
+  -- We want to show that this is the case regardless of what A and B actually are
+  -- We do this using a polymorphic function that is parametrised over A and B, both of type Set
+  -- We use curly braces {} to make these function parameters implicit
+  -- When we call this function we won't have to supply the arguments A and B unless we want to
+  -- When we define this function we won't have to accept A and B as arguments unless we want to
+  -- The first line below gives the type of the function get-fst
+  -- The second line gives its definition
+  get-fst : {A : Set} {B : Set} → A × B → A
+  get-fst x = {!!}
 
--- Agda is an *interactive* proof assistant
--- We don't provide our proofs/programs all at once: we develop them iteratively
--- We write ? where we don't yet have a program to provide, and we reload the file
--- What we get back is a hole where we can place the cursor and have a conversation with Agda
--- ctrl+c is the prefix that we use to communicate with Agda
--- ctrl+c ctrl+l reload the file
--- ctrl+c ctrl+, shows the goal and the context
--- ctrl+c ctrl+. shows the goal, the context, and what we have so far
--- ctrl+c ctrl+c pattern matches against a given arguments
--- ctrl+c ctrl+r refines the goal: it will ask Agda to insert the first constructor we need
--- ctrl+c ctrl+a try to automatically fulfill the goal
--- key bindings: https://agda.readthedocs.io/en/v2.6.1.3/getting-started/quick-guide.html
-get-snd : ∀ {A B} → A × B → B
-get-snd x = {!x!}
+  -- Agda is an *interactive* proof assistant
+  -- We don't provide our proofs/programs all at once: we develop them iteratively
+  -- We write ? where we don't yet have a program to provide, and we reload the file
+  -- What we get back is a hole where we can place the cursor and have a conversation with Agda
+  -- ctrl+c is the prefix that we use to communicate with Agda
+  -- ctrl+c ctrl+l reload the file
+  -- ctrl+c ctrl+, shows the goal and the context
+  -- ctrl+c ctrl+. shows the goal, the context, and what we have so far
+  -- ctrl+c ctrl+c pattern matches against a given arguments
+  -- ctrl+c ctrl+r refines the goal: it will ask Agda to insert the first constructor we need
+  -- ctrl+c ctrl+a try to automatically fulfill the goal
+  -- key bindings: https://agda.readthedocs.io/en/v2.6.1.3/getting-started/quick-guide.html
+  get-snd : ∀ {A B} → A × B → B
+  get-snd x = {!x!}
 
--- The variable keyword enables us to declare convention for notation
--- Unless said otherwise, whenever we refer to A, B or C and these are not bound, we will refer to objects of type Set
+  -- The variable keyword enables us to declare convention for notation
+  -- Unless said otherwise, whenever we refer to A, B or C and these are not bound, we will refer to objects of type Set
+  variable
+    ℓ : Level
+    A B C : Set ℓ
+
+  -- Notice how we don't have to declare A, B and C anymore
+  curry : (A → B → C) → (A × B → C)
+  curry f = {!!}
+
+  uncurry : (A × B → C) → (A → B → C)
+  uncurry f = {!!}
+
+  ×-comm : A × B → B × A
+  ×-comm = {!!}
+
+  ×-assoc : (A × B) × C → A × (B × C)
+  ×-assoc = {!!}
+
+  -- Pattern matching has to be exhaustive: all cases must be addressed
+  ⊎-comm : A ⊎ B → B ⊎ A
+  ⊎-comm = {!!}
+
+  ⊎-assoc : (A ⊎ B) ⊎ C → A ⊎ (B ⊎ C)
+  ⊎-assoc = {!!}
+
+  -- If there are no cases to be addressed there is nothing for us left to do
+  -- If you believe ⊥ exist you believe anything
+  absurd : ⊥ → A
+  absurd a = {!!}
+
+  -- In constructive mathematics all proofs are constructions
+  -- How do we show that an object of type A cannot possibly be constructed, while using a construction to show so?
+  -- We take the cannonically impossible-to-construct object ⊥, and show that if we were to assume the existence of A, we could use it to construct ⊥
+  ¬_ : Set ℓ → Set ℓ
+  ¬ A = A → ⊥
+
+  -- Here we have a choice of two programs to write
+  ×-⇒-⊎₁ : A × B → A ⊎ B
+  ×-⇒-⊎₁ = {!!}
+
+  ×-⇒-⊎₂ : A × B → A ⊎ B
+  ×-⇒-⊎₂ = {!!}
+
+  -- A little more involved
+  -- Show that the implication (A ⊎ B → A × B) is not always true for all A and Bs
+  ⊎-⇏-× : ¬ (∀ {A B} → A ⊎ B → A × B)
+  ⊎-⇏-× f = {!!}
+
 variable
   ℓ : Level
   A B C : Set ℓ
-
--- Notice how we don't have to declare A, B and C anymore
-curry : (A → B → C) → (A × B → C)
-curry f = {!!}
-
-uncurry : (A × B → C) → (A → B → C)
-uncurry f = {!!}
-
-×-comm : A × B → B × A
-×-comm = {!!}
-
-×-assoc : (A × B) × C → A × (B × C)
-×-assoc = {!!}
-
--- Pattern matching has to be exhaustive: all cases must be addressed
-⊎-comm : A ⊎ B → B ⊎ A
-⊎-comm = {!!}
-
-⊎-assoc : (A ⊎ B) ⊎ C → A ⊎ (B ⊎ C)
-⊎-assoc = {!!}
-
--- If there are no cases to be addressed there is nothing for us left to do
--- If you believe ⊥ exist you believe anything
-absurd : ⊥ → A
-absurd a = {!!}
-
--- In constructive mathematics all proofs are constructions
--- How do we show that an object of type A cannot possibly be constructed, while using a construction to show so?
--- We take the cannonically impossible-to-construct object ⊥, and show that if we were to assume the existence of A, we could use it to construct ⊥
-¬_ : Set ℓ → Set ℓ
-¬ A = A → ⊥
-
--- Here we have a choice of two programs to write
-×-⇒-⊎₁ : A × B → A ⊎ B
-×-⇒-⊎₁ = {!!}
-
-×-⇒-⊎₂ : A × B → A ⊎ B
-×-⇒-⊎₂ = {!!}
-
--- A little more involved
--- Show that the implication (A ⊎ B → A × B) is not always true for all A and Bs
-⊎-⇏-× : ¬ (∀ {A B} → A ⊎ B → A × B)
-⊎-⇏-× f = {!!}
 
 -- Function composition: (f ∘ g) composes two functions f and g
 -- The result takes the input, feeds it through g, then feeds the result through f
@@ -436,11 +441,171 @@ _∎ _ = refl
   suc (y + x)  ∎
 
 -----------
+-- Pi and Sigma types
+-----------
+
+module Product where
+  -- The open keyword opens a given module in the current namespace
+  -- By default all of the public names of the module are opened
+  -- The using keyword limits the imported definitions to those explicitly listed
+  open Fin
+  open Vec using (Vec; []; _∷_)
+  open Simple using (¬_)
+
+  variable
+    P Q : A → Set
+
+  -- Pi types: dependent function types
+  -- For every x of type A, the predicate P x holds
+  Π : (A : Set) → (A → Set) → Set
+  Π A P = (x : A) → P x
+
+  -- Sigma types: dependent product types, existential types
+  -- For this x of type A, the predicate P x holds
+  record Σ (A : Set) (P : Pred A) : Set where
+    -- In the type P fst, fst refers to a previously introduced field
+    constructor _,_
+    field
+      fst : A
+      snd : P fst
+
+  open Σ public
+
+  -- By depending on a boolean we can use pi types to represent product types
+  Π-× : Set → Set → Set
+  Π-× A B = Π Bool λ where
+    true  → A
+    false → B
+
+  -- By depending on a boolean we can use sigma types to represent sum types
+  Σ-⊎ : Set → Set → Set
+  Σ-⊎ A B = Σ Bool λ where
+    true  → A
+    false → B
+
+  -- Use pi types to recover function types
+  Π-→ : Set → Set → Set
+  Π-→ A B = Π A λ where
+    _     → B
+
+  -- Use sigma types to recover product types
+  Σ-× : Set → Set → Set
+  Σ-× A B = Σ A λ where
+    _     → B
+
+  infix 5 _×_
+  _×_ : Set → Set → Set
+  _×_ = Σ-×
+
+  curry : (A → B → C) → (A × B → C)
+  curry f (a , b) = f a b
+
+  -- If we can transform the witness and transform the predicate as per the transformation on the witness then we can transform a sigma type
+  map : (f : A → B) → (∀ {x} → P x → Q (f x)) → Σ A P → Σ B Q
+  map f g (x , y) = (f x , g y)
+
+  -- The syntax keyword introduces notation that can include binders
+  infix 4 Σ-syntax
+  Σ-syntax : (A : Set) → (A → Set) → Set
+  Σ-syntax = Σ
+  syntax Σ-syntax A (λ x → B) = Σ[ x ∈ A ] B
+
+  ¬∘ : Pred A → Pred A
+  ¬∘ P = ¬_ ∘ P
+
+  -- These can be proven regardless of A
+
+  ¬∃⇒∀¬ : ¬ (Σ A P) → Π A (¬∘ P)
+  ¬∃⇒∀¬ = {!!}
+
+  ∃¬⇒¬∀ : Σ A (¬∘ P) → ¬ Π A P
+  ∃¬⇒¬∀ = {!!}
+
+  ∀¬⇒¬∃ : Π A (¬∘ P) → ¬ Σ A P
+  ∀¬⇒¬∃ = {!!}
+
+  -- Works in classical, not in constructive mathematics
+  -- Unless A is discrete, inhabited, and finite, and P is decidable
+  postulate ¬∀⇒∃¬ : ¬ Π A P → Σ A (¬∘ P)
+
+  -- Show that ≤ is antisymmetric
+  ≤-≡ : n ≤ m → m ≤ n → n ≡ m
+  ≤-≡ x y = {!!}
+
+  -- By using n ≤ m instead of Fin m we can mention n in the output
+  take : Vec A m → n ≤ m → Vec A n
+  take xs lte = {!!}
+
+  -- Proof combining sigma types and equality
+  Fin-to-≤ : (i : Fin m) → Σ[ n ∈ ℕ ] to-ℕ i ≡ n × n < m
+  Fin-to-≤ zero = zero , (refl , (s≤s z≤n))
+  Fin-to-≤ (suc i) = map suc {!!} (Fin-to-≤ i)
+
+  ≤-to-Fin : n < m → Σ[ i ∈ Fin m ] to-ℕ i ≡ n
+  ≤-to-Fin (s≤s lte) = {!!}
+
+-----------
+-- Interfaces, isomorphisms
+-----------
+
+module Isomorphism where
+  -- Why can we import _,_ from both modules without resulting in a nameclash?
+  open Simple using (_⊎_; _×_; _,_; inl; inr)
+  open Product using (Σ-syntax; Σ-⊎; Σ-×; Π-×; Π-→; _,_)
+  open Fin using (Fin; zero; suc)
+
+  infix 2 _≅_
+  record _≅_ (A B : Set) : Set where
+    constructor Mk≅
+    field
+      to      : A → B
+      from    : B → A
+      from∘to : ∀ a → from (to a) ≡ a
+      to∘from : ∀ b → to (from b) ≡ b
+
+  open _≅_
+
+  Σ-⊎-≅ : Σ-⊎ A B ≅ A ⊎ B
+  Σ-⊎-≅ = {!!}
+
+  Σ-×-≅ : Σ-× A B ≅ A × B
+  Σ-×-≅ = {!!}
+
+  Π-→-≅ : Π-→ A B ≅ (A → B)
+  to Π-→-≅ = {!!}
+  from Π-→-≅ = {!!}
+  -- Needs η laws for functions (∀ x → f x) ≡ f
+  from∘to Π-→-≅ = {!!}
+  to∘from Π-→-≅ = {!!}
+
+  -- The following isomorphism needs of function extensionality
+  -- Function extensionality claims that if two functions give the same output on the same input, then they are equal
+  -- Agda is an intensional type theory, and thus this does not hold internally
+  -- We therefore need to postulate it as an axiom
+  postulate
+    extensionality : {P : A → Set} {f g : (a : A) → P a} → (∀ x → f x ≡ g x) → f ≡ g
+
+  Π-×-≅ : Π-× A B ≅ A × B
+  to Π-×-≅ = {!!}
+  from Π-×-≅ = {!!}
+  from∘to Π-×-≅ = {!!}
+  to∘from Π-×-≅ = {!!}
+
+  Fin-≤-≅ : Fin m ≅ Σ[ n ∈ ℕ ] n < m
+  to Fin-≤-≅ = {!!}
+  from Fin-≤-≅ = {!!}
+  from∘to Fin-≤-≅ = {!!}
+  to∘from Fin-≤-≅ = {!!}
+
+
+-----------
 -- Decidability
 -----------
 
 module Dec where
   open Fin
+  open Product using (_×_; _,_; fst; snd; curry)
+  open Simple using (¬_)
 
   data Dec (A : Set) : Set where
     yes :   A → Dec A
@@ -478,64 +643,6 @@ module Dec where
   List-≟ _A-≟_ [] (y ∷ ys) = no λ ()
   List-≟ _A-≟_ (x ∷ xs) [] = no λ ()
   List-≟ _A-≟_ (x ∷ xs) (y ∷ ys) = map (yes ∘ curry (cong₂ _∷_)) (no ∘ (λ neq → neq ∘ ∷-injective)) (x A-≟ y ×-dec List-≟ _A-≟_ xs ys)
-
------------
--- Pi and Sigma types
------------
-
-module Product where
-  Π : (A : Set) → (A → Set) → Set
-  Π A P = (x : A) → P x
-
-  record Σ (A : Set) (B : Pred A) : Set where
-    constructor _,_
-    field
-      fst : A
-      snd : B fst
-
-  infix 2 Σ-syntax
-  Σ-syntax : (A : Set) → (A → Set) → Set
-  Σ-syntax = Σ
-  syntax Σ-syntax A (λ x → B) = Σ[ x ∈ A ] B
-
-  map : {P : Pred A} {Q : Pred B} → (f : A → B) → (∀ {x} → P x → Q (f x)) → Σ A P → Σ B Q
-  map f g (x , y) = (f x , g y)
-
--- Introduce anonymous modules
-module _ where
-  -- Introduce module opening
-  open Fin
-  open Product using (Π; Σ; Σ-syntax; _,_)
-  open Vec using (Vec; []; _∷_)
-  open Dec using (Dec)
-
-  ≤-≡ : n ≤ m → m ≤ n → n ≡ m
-  ≤-≡ x y = {!!}
-
-  take : Vec A m → n ≤ m → Vec A n
-  take xs lte = {!!}
-
-  -- Proof combining sigma types and equality
-  ≤-to-Fin : n ≤ m → Σ[ x ∈ Fin (suc m) ] to-ℕ x ≡ n
-  ≤-to-Fin z≤n = {!!}
-  ≤-to-Fin (s≤s lte) = {!!}
-
-  module _ {A : Set} {P : A → Set} where
-
-    -- These can be proven regardless of A
-
-    ¬∃⇒∀¬ : ¬ (Σ A P) → Π A (¬_ ∘ P)
-    ¬∃⇒∀¬ = {!!}
-
-    ∃¬⇒¬∀ : Σ A (¬_ ∘ P) → ¬ Π A P
-    ∃¬⇒¬∀ = {!!}
-
-    ∀¬⇒¬∃ : Π A (¬_ ∘ P) → ¬ Σ A P
-    ∀¬⇒¬∃ = {!!}
-
-    -- Works in classical, not in constructive mathematics
-    -- Unless A is discrete, inhabited, and finite, and P is decidable
-    postulate ¬∀⇒∃¬ : ¬ Π A P → Σ A (¬_ ∘ P)
 
 -----------
 -- Interfaces
