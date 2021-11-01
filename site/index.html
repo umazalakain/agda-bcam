@@ -5,30 +5,25 @@ title: Home
 <h2>Abstract</h2>
 
 <p>
-  This course is a brief introduction to Agda, a functional programming language
-  with dependent types. Dependent types are types that depend on values,
-  something which, as we will see during this course, allows us to provide very
-  detailed specifications for our programs. In fact, such is the power of
-  dependently typed programming that it blurs the lines between computer
-  programming and theorem proving: theorems in constructive mathematics become
-  types in Agda, and proofs of those theorems become computable programs that
-  inhabit their corresponding types. This correspondence enables us to
-  completely mechanise mathematical concepts, using the machine to check the
-  correctness of our proofs, or even to aid us in their construction.
+    Type theory is a flavour of constructive mathematics where every mathematical object is of a certain type.
+    From this perspective, propositions become types, and their proofs become programs inhabiting their corresponding type.
 </p>
+
+<p>
+    Agda is a functional programming language that tastes like Haskell and features dependent types, data types that depend on values, e.g., the type of lists of a given length.
+    Agda is not just a programming language, but also a proof assistant: it enables one to construct proofs interactively, and to use the machine to check for the correctness of their proofs.
+</p>
+
+<p>
+    This tutorial will serve as a brief introduction to theorem proving using the proof assistant Agda.
+    I will introduce some common definitions and demonstrate machine assisted theorem proving at work.
+</p>
+
 
 $partial("templates/tutorial-list-days.html")$
 
 <h2>Speaker</h2>
 
-<ul>
-  <li>
-    <a href="https://www.umazalakain.info/" target="_blank">Uma Zalakain</a>.
-    <a href="http://www.dcs.gla.ac.uk/research/formalmethods/" target="_blank">
-      Methods Research Group
-    </a>
-    at the University of Glasgow.
-  </li>
-</ul>
+<a href="https://www.umazalakain.info/" target="_blank">Uma Zalakain</a>, <a href="http://www.dcs.gla.ac.uk/research/formalmethods/" target="_blank">Formal Methods Research Group</a> at the University of Glasgow.
 
 $partial("templates/bibliography.html")$

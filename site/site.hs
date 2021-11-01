@@ -58,6 +58,14 @@ main = hakyllWith config $ do
         >>= loadAndApplyTemplate "templates/default.html" defaultContext
         >>= relativizeUrls
 
+  match "README.md" $ do
+    route $ setExtension "html"
+    compile $ do
+      pandocCompiler
+        >>= applyAsTemplate defaultContext
+        >>= loadAndApplyTemplate "templates/default.html" defaultContext
+        >>= relativizeUrls
+
   match "templates/*" $ compile templateBodyCompiler
 
 --

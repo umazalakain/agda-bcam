@@ -1,5 +1,5 @@
 
-You can find the Agda source code in browsable HTML [here](https://umazalakain.github.io/agda-bcam/html/Everything.html).
+You can find the Agda source code in browsable HTML [here](https://umazalakain.github.io/agda-bcam/agda/Everything.html).
 
 # Programming with evidence
 
