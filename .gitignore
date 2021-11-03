@@ -3,3 +3,11 @@ dist-newstyle
 *.agdai
 docs
 site/agda/*.html
+Talk/auto
+Talk/talk.aux
+Talk/talk.log
+Talk/talk.nav
+Talk/talk.out
+Talk/talk.pdf
+Talk/talk.snm
+Talk/talk.toc

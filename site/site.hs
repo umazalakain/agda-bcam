@@ -22,17 +22,13 @@ main = hakyllWith config $ do
         >>= loadAndApplyTemplate "templates/default.html" defaultContext
         >>= relativizeUrls
 
-  match ("favicon.ico" .||. "images/*.png") $ do
+  match ("favicon.ico" .||. "images/*.png" .||. "webfonts/*" .||. "talk.pdf") $ do
     route idRoute
     compile copyFileCompiler
 
   match "css/*" $ do
     route idRoute
     compile compressCssCompiler
-
-  match "webfonts/*" $ do
-    route idRoute
-    compile copyFileCompiler
 
   create ["tutorial.html"] $ do
     route idRoute

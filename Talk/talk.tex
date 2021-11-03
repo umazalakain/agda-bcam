@@ -1,0 +1,156 @@
+\documentclass[dvipsnames]{beamer}
+
+\usetheme[sectionpage=none,numbering=none]{metropolis}
+
+\newenvironment{wideitemize}{\itemize\addtolength{\itemsep}{1em}}{\enditemize}
+\newcommand{\sitem}{\item[\raisebox{.45ex}{\rule{.6ex}{.6ex}}]}
+\renewcommand{\arraystretch}{1.5}
+
+\title{Programming with Evidence}
+\subtitle{\small The introduction to an introduction to Agda}
+\author{Uma Zalakain\\\tiny Formal Methods group, University of Glasgow}
+\date{}
+\institute{Basque Center for Applied Mathematics\\\tiny November 23, 2021}
+
+\begin{document}
+
+\maketitle
+
+\begin{frame}{About me}
+\begin{wideitemize}
+  \sitem second year PhD student at the Formal Methods group at University of Glasgow
+  \sitem machine verification of typed process calculi:\\
+    using proof assistants to model typed concurrency languages and to verify their meta-theory
+  \sitem programming languages theory, concurrency theory,\\
+    type theory, distributed systems
+\end{wideitemize}
+\end{frame}
+
+\begin{frame}{Yesterday: Zermelo-Fraenkel Set Theory}
+\begin{wideitemize}
+  \sitem a foundation for mathematics
+  \sitem untyped, $x \in A$ is a \emph{proposition}
+  \sitem elements can belong to different sets
+  \sitem a set is fully characterised by its elements
+  \sitem primitives: set operations ($\cup$, $\cap$)
+  \sitem predicate logic
+  \sitem non-constructive
+\end{wideitemize}
+\end{frame}
+
+\begin{frame}{Today: Martin-L\"of Type Theory}
+\begin{wideitemize}
+  \sitem also a foundation for mathematics
+  \sitem typed, $x : A$ is a \emph{judgment}
+  \sitem an element has a unique type
+  \sitem  a type is \emph{not} characterised by its elements
+  \sitem primitives: datatypes and functions
+  \sitem propositions as types ($\Pi$ and $\Sigma$ model predicate logic)
+  \sitem constructive: \emph{a programming language!}
+\end{wideitemize}
+\end{frame}
+
+\begin{frame}{Propositions as Types}
+\begin{wideitemize}
+  \sitem propositions are (proof-relevant) types
+  \sitem proofs are programs
+  \sitem evidence is data
+  \sitem constructivism: proofs have computational content,\\
+    \emph{you can run them}
+\end{wideitemize}
+\end{frame}
+
+\begin{frame}{Propositions as Types}
+\center
+\begin{tabular}{ c | c }
+  proposition & type \\ \hline{}
+  $\bot$ & $\mathtt{Zero}$ \\
+  $\top$ & $\mathtt{One}$ \\
+  $A \land B$ & $\mathtt{A \times B}$ \\
+  $A \lor B$ & $\mathtt{A \uplus B}$ \\
+  $A \implies B$ & $\mathtt{A \to B}$ \\
+  $\neg A$ & $A \to \bot$ \\
+  $\forall x . \, P \, x$ & $\mathtt{\Pi \, (x : A) \, (P \, x)}$ \\
+  $\exists x . \, P \, x$ & $\mathtt{\Sigma \, (x : A) \, (P \, x)}$ \\
+\end{tabular}
+\end{frame}
+
+\begin{frame}{Interactive Proof Assistants}
+\begin{itemize}
+  \sitem system checks proofs for correctness
+  \sitem system helps the user to construct those proofs interactively
+  \sitem interactive proving becomes interactive programming
+  \sitem requires less trust, easier to refactor with confidence
+  \sitem educational value --- instant feedback for the student
+  \sitem easy to reuse: shared library of definitions and proofs
+  \sitem proofs compute!
+  \sitem a lot of fun!
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Interactive Proof Assistants}
+  \begin{wideitemize}
+  \sitem Coq: based on the Calculus of Inductive Constructions, heavy use of tactics
+  \sitem Lean: based on the Calculus of Inductive Constructions, small kernel, support for quotient types
+  \sitem Idris2: based on Quantitative Type Theory, supports linearity annotations, focuses on compilation
+  \sitem Agda: very close to Martin-L\"of Type Theory, handles proof terms directly
+  \end{wideitemize}
+\end{frame}
+
+
+\begin{frame}{Agda}
+\begin{wideitemize}
+  \sitem developed mainly at Chalmers, Sweden
+  \sitem clean syntax, unicode support
+  \sitem based on dependent pattern matching
+  \sitem mostly used in:
+    \begin{itemize}
+      \sitem Programming Language Theory
+      \sitem Category Theory
+      \sitem Homotopy Theory
+    \end{itemize}
+\end{wideitemize}
+\end{frame}
+
+\begin{frame}{Dependent Types}
+  \begin{wideitemize}
+    \sitem types contain arbitrary expressions
+    \sitem allow correct-by-construction problem modelling
+    \sitem pre and post conditions can be tightened\\ using types as specifications 
+    \sitem empty types rule out impossible cases
+  \end{wideitemize}
+\end{frame}
+
+\begin{frame}{About the tutorials}
+\begin{wideitemize}
+  \sitem Monday to Thursday
+  \sitem 9h total
+  \sitem interactive --- an emacs buffer
+  \sitem available online: \url{https://umazalakain.github.io/agda-bcam/}
+  \sitem recorded for posterity (including mistakes)
+\end{wideitemize}
+\end{frame}
+
+\begin{frame}{About the tutorials}
+\begin{itemize}
+  \sitem simple and composite types
+  \sitem unicode and misfix operators
+  \sitem interactive programming
+  \sitem record types
+  \sitem Curry-Howard correspondence
+  \sitem dependent function types
+  \sitem indexed data types
+  \sitem parametrised modules
+  \sitem with abstraction
+  \sitem automated evidence-providing solvers
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Bibliography}
+\begin{wideitemize}
+  \sitem \emph{Introduction to Agda}, \textbf{Andreas Abel}, 8th Summer School on Formal Techniques (SSFT’18) Menlo College, California, US
+  \sitem \emph{Computer Aided Formal Reasoning}, \textbf{Thorsten Altenkirch}, 2010
+  \sitem \emph{A Practical Agda Tutorial}, \textbf{Péter Diviánszky and Ambrus Kaposi}, 2013
+\end{wideitemize}
+\end{frame}
+\end{document}
