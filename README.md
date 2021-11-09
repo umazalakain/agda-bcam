@@ -1,5 +1,7 @@
 
+The repository for this tutorial course is: <https://github.com/umazalakain/agda-bcam>.
 You can find the Agda source code in browsable HTML [here](https://umazalakain.github.io/agda-bcam/agda/Everything.html).
+The slides for the talk can be found [here](https://umazalakain.github.io/agda-bcam/talk.pdf).
 
 # Programming with evidence
 
@@ -24,55 +26,7 @@ You can find the Agda source code in browsable HTML [here](https://umazalakain.g
 - Talk (propaganda):
   - Tue 16:30 - 17:30
 
-## Format of the tutorials
-
-- I will set some daily exercises
-- The exercises give you experience interacting with Agda!
-- Installing Agda+Emacs depends on your system:
-follow <https://agda.readthedocs.io/en/v2.6.1.3/getting-started/installation.html>
-- I will take questions about exercises at the beginning of the tutorials
-
-## Lecture notes and exercises
-
-<https://github.com/umazalakain/agda-bcam>
-
 ## Resources
 
-<https://agda.readthedocs.io/en/v2.6.1.3/getting-started/tutorial-list.html>
-
-## Syllabus
-
-**TODO**
-
-- Monday (2.5h):
-  - simple types
-  - type parameters
-  - interaction with the type checker
-  - simple function types
-  - unicode
-  - misfix notation
-  - totality checkings
-  - inductive data types
-  - termination checking
-  - dependent types
-  - type indices
-  - propositional equality
-  - equational reasoning
-
-- Tuesday (1.5h):
-  - with abstraction
-  - runtime assertions become compile-time preconditions
-  - proving the correctness of a simple compiler
-
-- Wednesday (2.5h):
-  - copatterns
-  - module system
-  - universe polymorphism
-  - local definitions: let and where
-  - postulates
-  - coinduction
-
-- Thursday (2.5h):
-  - standard library
-  - some more involved example
-  - other theorem provers
+- [List of tutorials](https://agda.readthedocs.io/en/v2.6.1.3/getting-started/tutorial-list.html)
+- [Installing Agda](https://agda.readthedocs.io/en/v2.6.1.3/getting-started/installation.html)
