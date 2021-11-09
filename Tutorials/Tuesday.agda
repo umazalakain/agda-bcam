@@ -61,9 +61,6 @@ module Product where
   _×_ : Set → Set → Set
   _×_ = Σ-×
 
-  curry : (A → B → C) → (A × B → C)
-  curry f (a , b) = f a b
-
   -- 1) If we can transform the witness and
   -- 2) transform the predicate as per the transformation on the witness
   -- ⇒) then we can transform a sigma type
@@ -91,7 +88,6 @@ module Product where
   ∀¬⇒¬∃ = {!!}
 
   -- Works in classical, not in constructive mathematics
-  -- Unless A is discrete, inhabited, and finite, and P is decidable
   postulate ¬∀⇒∃¬ : ¬ Π A P → Σ A (¬∘ P)
 
   -- Show that ≤ is antisymmetric

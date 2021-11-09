@@ -25,6 +25,7 @@ module Isomorphism where
 
   open _≅_
 
+  -- We can use copattern matching to construct a record by defining how to construct each of its fields
   Σ-⊎-≅ : Σ-⊎ A B ≅ A ⊎ B
   Σ-⊎-≅ = {!!}
 
@@ -40,23 +41,27 @@ module Isomorphism where
 
   -- The following isomorphism needs of function extensionality
   -- Function extensionality claims that if two functions give the same output on the same input, then they are equal
-  -- Agda is an intensional type theory, and thus this does not hold internally
-  -- We therefore need to postulate it as an axiom
+  -- This does not hold internally in Agda and we therefore need to postulate it as an axiom
   postulate
     extensionality : {P : A → Set} {f g : (a : A) → P a} → (∀ x → f x ≡ g x) → f ≡ g
 
   Π-×-≅ : Π-× A B ≅ A × B
-  to Π-×-≅ = {!!}
-  from Π-×-≅ = {!!}
-  from∘to Π-×-≅ = {!!}
-  to∘from Π-×-≅ = {!!}
+  Π-×-≅ = {!!}
+
+  curry : Π-→ A (Π-→ B C) → Π-→ (Σ-× A B) C
+  curry f (a , b) = f a b
+
+  uncurry : Π-→ (Σ-× A B) C → Π-→ A (Π-→ B C)
+  uncurry f a b = f (a , b)
+
+  curry-uncurry : Π-→ A (Π-→ B C) ≅ Π-→ (Σ-× A B) C
+  curry-uncurry = {!!}
 
   Fin-≤-≅ : Fin m ≅ Σ[ n ∈ ℕ ] n < m
-  to Fin-≤-≅ = {!!}
-  from Fin-≤-≅ = {!!}
-  from∘to Fin-≤-≅ = {!!}
-  to∘from Fin-≤-≅ = {!!}
+  Fin-≤-≅ = {!!}
 
+  _iso-∘_ : B ≅ C → A ≅ B → A ≅ C
+  x iso-∘ y = {!!}
 
 -----------
 -- Decidability

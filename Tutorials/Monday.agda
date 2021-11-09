@@ -45,7 +45,7 @@ module Simple where
     -- If in emacs, we can put the cursor over a characted and use M-x describe-char to see how that character is inputted
     -- × is inputted using \times
 
-    -- Agda offers support for misfix notation
+    -- Agda offers support for mixfix notation
     -- We use the underscores to specify where the arguments goal
     -- In this case the arguments are the type parameters A and B, so we can write A × B
 
@@ -151,6 +151,17 @@ module Simple where
   ¬_ : Set ℓ → Set ℓ
   ¬ A = A → ⊥
 
+  -- In classical logic double negation can be eliminated: ¬ ¬ A ⇒ A
+  -- That is however not the case in constructive mathematics:
+  -- The proof ¬ ¬ A is a function that takes (A → ⊥) into ⊥, and offers no witness for A
+  -- The opposite direction is however constructive:
+  ⇒¬¬ : A → ¬ ¬ A
+  ⇒¬¬ = {!!}
+
+  -- Moreover, double negation can be eliminated from non-witnesses
+  ¬¬¬⇒¬ : ¬ ¬ ¬ A → ¬ A
+  ¬¬¬⇒¬ = {!!}
+
   -- Here we have a choice of two programs to write
   ×-⇒-⊎₁ : A × B → A ⊎ B
   ×-⇒-⊎₁ = {!!}
@@ -195,7 +206,7 @@ three' = 3
 
 -- Whenever we say n or m and they haven't been bound, they refer to natural numbers
 variable
-  n m : ℕ
+  n m l : ℕ
 
 -- Brief interlude: we declare the fixity of certain functions
 -- By default, all definitions have precedence 20
@@ -357,12 +368,19 @@ data _≤_ : Rel ℕ where
 _<_ : ℕ → ℕ → Set
 n < m = suc n ≤ m
 
+-- _≤_ is reflexive and transitive
+≤-refl : ∀ n → n ≤ n
+≤-refl n = {!!}
+
+≤-trans : n ≤ m → m ≤ l → n ≤ l
+≤-trans a b = {!!}
+
 -----------
 -- Propositional Equality
 -----------
 
 -- Things get interesting: we can use type indices to define propositional equality
--- For any (x y : A) the type x ≡ y is a proof showing that x and y are in fact symbolically equal
+-- For any (x y : A) the type x ≡ y is a proof showing that x and y are in fact definitionally equal
 -- It has a single constructor refl which limits the ways of making something of type x ≡ y to those where x and y are in fact the same, i.e. x ≡ x
 -- When we pattern match against something of type x ≡ y, the constructor refl will make x and y unify: Agda will internalise the equality
 infix 10 _≡_
@@ -397,6 +415,10 @@ cong f p = {!!}
 -- A binary version that will come in use later on
 cong₂ : {x y : A} {w z : B} (f : A → B → C) → x ≡ y → w ≡ z → f x w ≡ f y z
 cong₂ f refl refl = refl
+
+-- Leibniz equality, transport
+subst : {x y : A} {P : Pred A} → x ≡ y → P x → P y
+subst eq p = {!!}
 
 -- Now we can start proving slightly more interesting things!
 +-assoc : ∀ x y z → (x + y) + z ≡ x + (y + z)
