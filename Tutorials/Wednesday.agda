@@ -102,7 +102,7 @@ module Dec where
     (no ∘ (λ neq → neq ∘ suc-injective))
     (i Fin-≟ j)
 
-  ∷-injective : {x y : A} {xs ys : List A} → x ∷ xs ≡ y ∷ ys → x ≡ y × xs ≡ ys
+  ∷-injective : {x y : A} {xs ys : List A} → _≡_ {A = List A} (x ∷ xs) (y ∷ ys) → x ≡ y × xs ≡ ys
   ∷-injective refl = refl , refl
 
   List-≟ : (_A-≟_ : (x y : A) → Dec (x ≡ y)) → (xs ys : List A) → Dec (xs ≡ ys)
