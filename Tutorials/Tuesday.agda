@@ -1,6 +1,6 @@
 {-# OPTIONS --allow-unsolved-metas #-}
 
-open import Tutorials.Monday
+open import Tutorials.Monday-Complete
 module Tutorials.Tuesday where
 
 -----------
