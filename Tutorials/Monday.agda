@@ -12,7 +12,10 @@ module Tutorials.Monday where
 -}
 
 -- In Agda all the tokens are tokenised using whitespace (with the exception of parentheses and some other symbols)
-
+-- Agda offers unicode support
+-- We can input unicode using the backslash \ and (most of the time) typing what one would type in LaTeX
+-- If in emacs, we can put the cursor over a characted and use M-x describe-char to see how that character is inputted
+-- ⊥ is written using \bot
 data ⊥ : Set where
   -- AKA the empty set, bottom, falsehood, the absurd type, the empty type, the initial element
   -- ⊥ : Set means ⊥ is a Type (Set = Type, for historical reasons)
@@ -39,11 +42,6 @@ data Bool : Set where
 module Simple where
   record _×_ (A : Set) (B : Set) : Set where
     -- AKA logical and, product type
-
-    -- Agda offers support for unicode
-    -- We can input unicode using the backslash \ and (most of the time) typing what one would type in LaTeX
-    -- If in emacs, we can put the cursor over a characted and use M-x describe-char to see how that character is inputted
-    -- × is inputted using \times
 
     -- Agda offers support for mixfix notation
     -- We use the underscores to specify where the arguments goal
@@ -104,15 +102,16 @@ module Simple where
   -- We write ? where we don't yet have a program to provide, and we reload the file
   -- What we get back is a hole where we can place the cursor and have a conversation with Agda
   -- ctrl+c is the prefix that we use to communicate with Agda
-  -- ctrl+c ctrl+l reload the file
-  -- ctrl+c ctrl+, shows the goal and the context
-  -- ctrl+c ctrl+. shows the goal, the context, and what we have so far
-  -- ctrl+c ctrl+c pattern matches against a given arguments
-  -- ctrl+c ctrl+r refines the goal: it will ask Agda to insert the first constructor we need
-  -- ctrl+c ctrl+a try to automatically fulfill the goal
+  -- ctrl+c ctrl+l     reload the file
+  -- ctrl+c ctrl+,     shows the goal and the context
+  -- ctrl+c ctrl+.     shows the goal, the context, and what we have so far
+  -- ctrl+c ctrl+c     pattern matches against a given arguments
+  -- ctrl+c ctrl+space fill in hole
+  -- ctrl+c ctrl+r     refines the goal: it will ask Agda to insert the first constructor we need
+  -- ctrl+c ctrl+a     try to automatically fulfill the goal
   -- key bindings: https://agda.readthedocs.io/en/v2.6.1.3/getting-started/quick-guide.html
   get-snd : ∀ {A B} → A × B → B
-  get-snd x = {!x!}
+  get-snd x = {!!}
 
   -- The variable keyword enables us to declare convention for notation
   -- Unless said otherwise, whenever we refer to A, B or C and these are not bound, we will refer to objects of type Set
