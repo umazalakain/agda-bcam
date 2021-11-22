@@ -17,13 +17,13 @@ module Tutorials.Monday where
 -- If in emacs, we can put the cursor over a characted and use M-x describe-char to see how that character is inputted
 -- ⊥ is written using \bot
 data ⊥ : Set where
-  -- AKA the empty set, bottom, falsehood, the absurd type, the empty type, the initial element
+  -- AKA the empty set, bottom, falsehood, the absurd type, the empty type, the initial object
   -- ⊥ : Set means ⊥ is a Type (Set = Type, for historical reasons)
   -- The data keyword creates a data type where we list all the constructors of the types
   -- ⊥ has no constructors: there is no way of making something of type ⊥
 
 record ⊤ : Set where
-  -- AKA the singleton set, top, truth, the trivial type, the unit type, the terminal element
+  -- AKA the singleton set, top, truth, the trivial type, the unit type, the terminal object
   -- The record keyword creates a record type
   -- Records have a single constructor
   -- To create a record you must populate all of its fields
@@ -383,6 +383,7 @@ n < m = suc n ≤ m
 -- It has a single constructor refl which limits the ways of making something of type x ≡ y to those where x and y are in fact the same, i.e. x ≡ x
 -- When we pattern match against something of type x ≡ y, the constructor refl will make x and y unify: Agda will internalise the equality
 infix 10 _≡_
+-- \== ≡
 data _≡_ : A → A → Set where
   refl : {x : A} → x ≡ x
 
@@ -393,6 +394,10 @@ data _≡_ : A → A → Set where
 -- Because of the way in which defined _+_, zero + x ≡ x holds definitionally (the first case in the definition)
 +-idˡ : ∀ x → (zero + x) ≡ x
 +-idˡ x = {!!}
+
+-- We show that equality respects congruence
+cong : {x y : A} (f : A → B) → x ≡ y → f x ≡ f y
+cong f p = {!!}
 
 -- However this does not hold definitionally
 -- We need to use proof by induction
@@ -406,10 +411,6 @@ sym p = {!!}
 
 trans : {x y z : A} → x ≡ y → y ≡ z → x ≡ z
 trans p q = {!!}
-
--- We show that equality respects congruence
-cong : {x y : A} (f : A → B) → x ≡ y → f x ≡ f y
-cong f p = {!!}
 
 -- A binary version that will come in use later on
 cong₂ : {x y : A} {w z : B} (f : A → B → C) → x ≡ y → w ≡ z → f x w ≡ f y z
