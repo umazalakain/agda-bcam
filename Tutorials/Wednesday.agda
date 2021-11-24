@@ -1,7 +1,5 @@
-{-# OPTIONS --allow-unsolved-metas #-}
-
 open import Tutorials.Monday-Complete
-open import Tutorials.Tuesday
+open import Tutorials.Tuesday-Complete
 open List using (List; []; _∷_; _++_)
 open Vec using (Vec; []; _∷_; _!_)
 open Fin using (Fin; zero; suc)
@@ -77,6 +75,9 @@ module Dec where
     yes :   A → Dec A
     no  : ¬ A → Dec A
 
+  DecEq : Set → Set
+  DecEq A = (x y : A) → Dec (x ≡ y)
+
   map : (A → B) → (¬ A → B) → Dec A → B
   map f g (yes x) = f x
   map f g (no x) = g x
@@ -129,13 +130,13 @@ record Monoid (C : Set) : Set where
     idʳ : (x : C) → x ∙ ε ≡ x
     assoc : (x y z : C) → (x ∙ y) ∙ z ≡ x ∙ (y ∙ z)
 
-module MonoidSolver (Symbol : Set) (symbol-≟ : (x y : Symbol) → Dec.Dec (x ≡ y)) where
+module MonoidSolver (Symbol : Set) (symbol-≟ : Dec.DecEq Symbol) where
   -- The syntax for an expression tree of symbolic monoidal operations
   infixl 20 _‵∙_
   infix 25 ‵_
   data Expr : Set where
-    ‵_ : Symbol → Expr
-    ‵ε : Expr
+    ‵ε   : Expr
+    ‵_   : Symbol → Expr
     _‵∙_ : Expr → Expr → Expr
 
   -- And define equations on monoids
@@ -151,8 +152,8 @@ module MonoidSolver (Symbol : Set) (symbol-≟ : (x y : Symbol) → Dec.Dec (x �
   NormalForm = List Symbol
 
   normalise : Expr → NormalForm
-  normalise (‵ x) = x ∷ []
   normalise ‵ε = []
+  normalise (‵ x) = x ∷ []
   normalise (xs ‵∙ ys) = normalise xs ++ normalise ys
 
   module Eval (M : Monoid C) where
@@ -164,8 +165,8 @@ module MonoidSolver (Symbol : Set) (symbol-≟ : (x y : Symbol) → Dec.Dec (x �
 
     -- Evaluate the syntax in a given environment
     ⟦_⟧ : Expr → Env → C
-    ⟦ ‵ x ⟧ Γ = Γ x
     ⟦ ‵ε ⟧ Γ = ε
+    ⟦ ‵ x ⟧ Γ = Γ x
     ⟦ x ‵∙ y ⟧ Γ = ⟦ x ⟧ Γ ∙ ⟦ y ⟧ Γ
 
     -- Evaluate the normal form in a given environment
@@ -186,12 +187,12 @@ module MonoidSolver (Symbol : Set) (symbol-≟ : (x y : Symbol) → Dec.Dec (x �
 
     -- Normalising and then evaluating the normal form is equal to evaluating the original expression
     correct : ∀ Γ (expr : Expr) → ⟦ normalise expr ⟧⇓ Γ ≡ ⟦ expr ⟧ Γ
-    correct Γ (‵ x) = idʳ _
     correct Γ ‵ε = refl
+    correct Γ (‵ x) = idʳ _
     correct Γ (le ‵∙ re) = begin
-      ⟦ normalise le ++ normalise re ⟧⇓ Γ         ≡⟨ ++-homo Γ (normalise le) (normalise re) ⟩
-      (⟦ normalise le ⟧⇓ Γ ∙ ⟦ normalise re ⟧⇓ Γ) ≡⟨ cong₂ _∙_ (correct Γ le) (correct Γ re) ⟩
-      (⟦ le ⟧ Γ ∙ ⟦ re ⟧ Γ)                       ∎
+      ⟦ normalise le      ++  normalise re ⟧⇓ Γ ≡⟨ ++-homo Γ (normalise le) (normalise re) ⟩
+      ⟦ normalise le ⟧⇓ Γ ∙ ⟦ normalise re ⟧⇓ Γ ≡⟨ cong₂ _∙_ (correct Γ le) (correct Γ re) ⟩
+      ⟦ le ⟧            Γ ∙ ⟦ re ⟧            Γ ∎
 
     -- We describe what it is to be a solution to an equation
     -- If both sides normalise to the same symbols in the same order,
@@ -242,4 +243,3 @@ eqn₁-auto x y z =
     zero → x
     (suc zero) → y
     (suc (suc zero)) → z
-
