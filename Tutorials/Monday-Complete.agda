@@ -1,5 +1,3 @@
-{-# OPTIONS --allow-unsolved-metas #-}
-
 open import Agda.Primitive using (Level)
 module Tutorials.Monday-Complete where
 
@@ -417,21 +415,21 @@ data _≡_ : A → A → Set where
 
 -- We show that equality respects congruence
 cong : {x y : A} (f : A → B) → x ≡ y → f x ≡ f y
-cong f p = {!!}
+cong f refl = refl
 
 -- However this does not hold definitionally
 -- We need to use proof by induction
 -- We miss some pieces to prove this
 +-idʳ : ∀ x → (x + zero) ≡ x
 +-idʳ zero = refl
-+-idʳ (suc x) = {!!}
++-idʳ (suc x) = cong suc (+-idʳ x)
 
 -- Propositional equality is reflexive by construction, here we show it is also symmetric and transitive
 sym : {x y : A} → x ≡ y → y ≡ x
-sym p = {!!}
+sym refl = refl
 
 trans : {x y z : A} → x ≡ y → y ≡ z → x ≡ z
-trans p q = {!!}
+trans refl q = q
 
 -- A binary version that will come in use later on
 cong₂ : {x y : A} {w z : B} (f : A → B → C) → x ≡ y → w ≡ z → f x w ≡ f y z
@@ -439,21 +437,23 @@ cong₂ f refl refl = refl
 
 -- Leibniz equality, transport
 subst : {x y : A} {P : Pred A} → x ≡ y → P x → P y
-subst eq p = {!!}
+subst refl p = p
+
 
 -- Now we can start proving slightly more interesting things!
 +-assoc : ∀ x y z → (x + y) + z ≡ x + (y + z)
-+-assoc x y z = {!!}
++-assoc zero y z = refl
++-assoc (suc x) y z = cong suc (+-assoc x y z)
+
++-suc : ∀ x y → x + (suc y) ≡ (suc x) + y
++-suc zero y = refl
++-suc (suc x) y = cong suc (+-suc x y)
 
 -- Introduce underscores on the RHS
 +-comm : ∀ x y → x + y ≡ y + x
-+-comm x zero = {!!}
-+-comm x (suc y) = {!!}
++-comm x zero = +-idʳ _
++-comm x (suc y) = trans (+-suc _ _) (cong suc (+-comm x y))
   -- The keyword where allows us to introduce local definitions
-  where
-  +-suc : ∀ x y → x + suc y ≡ suc (x + y)
-  +-suc x y = {!!}
-
 
 -----------
 -- Some tooling for equational reasoning
@@ -477,8 +477,8 @@ _∎ _ = refl
 -- The equational resoning style allows us to explicitly write down the goals at each stage
 -- This starts to look like what one would do on the whiteboard
 +-comm′ : ∀ x y → x + y ≡ y + x
-+-comm′ x zero = {!!}
++-comm′ x zero = +-idʳ _
 +-comm′ x (suc y) = begin
-  (x + suc y)  ≡⟨ {!!} ⟩
-  suc (x + y)  ≡⟨ {!!} ⟩
+  (x + suc y)  ≡⟨ +-suc _ _ ⟩
+  suc (x + y)  ≡⟨ cong suc (+-comm′ x y) ⟩
   suc (y + x)  ∎
