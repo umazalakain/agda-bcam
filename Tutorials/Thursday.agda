@@ -129,3 +129,10 @@ module Stream where
   unfold coalg s = {!!}
 
 
+
+---------------------------------------------
+-- If you are interested in more
+-- Documentation for Agda: https://agda.readthedocs.io/en/v2.6.0.1/index.html
+-- Programming Language Foundations in Agda: https://plfa.github.io/
+-- Lots of other nice tutorials online
+-- The standard library: https://agda.github.io/agda-stdlib/
