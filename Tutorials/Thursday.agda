@@ -1,17 +1,67 @@
 {-# OPTIONS --allow-unsolved-metas --guardedness #-}
 
-import Tutorials.Monday-Complete
-import Tutorials.Tuesday-Complete
-import Tutorials.Wednesday-Complete
-open Tutorials.Monday-Complete using (⊤; tt; ℕ; zero; suc)
-open Tutorials.Monday-Complete.Simple using (_⊎_; inl; inr)
-open Tutorials.Tuesday-Complete.Product using (Σ; _,_; fst; snd; _×_)
+import Tutorials.Monday-Complete as Mon
+import Tutorials.Tuesday-Complete as Tue
+import Tutorials.Wednesday-Complete as Wed
+open Mon using (⊤; tt; ℕ; zero; suc)
+open Mon.Simple using (_⊎_; inl; inr)
+open Tue.Product using (Σ; _,_; fst; snd; _×_)
 
--- Stolen from https://github.com/pigworker/CS410-17/blob/master/lectures/Lec6Done.agda
 module Tutorials.Thursday where
 
 variable
   A B C S : Set
+
+-- Things that we skipped so far
+--------------------------------
+
+module WithAbstraction where
+  open Mon using (Bool; true; false; Pred; _≡_; refl; _+_; subst; +-comm)
+  open Mon.List using (List; []; _∷_)
+
+  -- With abstraction
+  -- You can use "with abstraction" to pattern match on intermediary computations
+  -- These can be nested, or executed simultaneously
+
+  filter : (A → Bool) → List A → List A
+  filter f [] = []
+  filter f (x ∷ xs) with f x
+  filter f (x ∷ xs) | true = x ∷ filter f xs
+  filter f (x ∷ xs) | false = filter f xs
+
+  -- Alternative notation
+  filter′ : (A → Bool) → List A → List A
+  filter′ f [] = []
+  filter′ f (x ∷ xs) with f x
+  ...                | true = x ∷ filter′ f xs
+  ...                | false = filter′ f xs
+
+
+  -- The goal type and the type of the arguments are generalised over the value of the scrutinee
+  thm : {P : Pred ℕ} (n m : ℕ) → P (n + m) → P (m + n)
+  -- 1) Here (p : P (n + m)) and (eq : n + m ≡ m + n)
+  -- thm n m p with +-comm n m
+  -- thm n m p | eq = {!!}
+  -- 2) Here (p : P x) and (eq : x ≡ m + n)
+  -- thm n m p with n + m | +-comm n m
+  -- thm n m p | x | eq = {!!}
+  -- 3) Pattern matching we get (p : P (m + n)), the dot signifies that the argument is uniquely determined
+  thm n m p with n + m | +-comm n m
+  thm n m p | .(m + n) | refl = p
+
+  -- This is such a common formula that there is special syntax for it
+  thm′ : {P : Pred ℕ} (n m : ℕ) → P (n + m) → P (m + n)
+  thm′ n m p rewrite +-comm n m = p
+
+  -- We could use subst to be more explicit about *where* the rewrite happens
+  thm′′ : {P : Pred ℕ} (n m : ℕ) → P (n + m) → P (m + n)
+  thm′′ {P} n m p = subst {P = P} (+-comm n m) p
+
+
+-- A little on coinductive types
+--------------------------------
+
+-- Stolen from https://github.com/pigworker/CS410-17/blob/master/lectures/Lec6Done.agda
 
 ListT : Set → Set → Set
 ListT X B = ⊤ ⊎ (X × B)

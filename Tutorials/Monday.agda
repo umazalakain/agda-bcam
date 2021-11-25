@@ -384,8 +384,10 @@ n < m = suc n ≤ m
 -- When we pattern match against something of type x ≡ y, the constructor refl will make x and y unify: Agda will internalise the equality
 infix 10 _≡_
 -- \== ≡
-data _≡_ : A → A → Set where
-  refl : {x : A} → x ≡ x
+data _≡_ (x : A) : A → Set where
+  refl : x ≡ x
+
+{-# BUILTIN EQUALITY _≡_ #-}
 
 -- Definitional equality holds when the two sides compute to the same symbols
 2+2≡4 : 2 + 2 ≡ 4
