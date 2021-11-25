@@ -1,5 +1,3 @@
-{-# OPTIONS --allow-unsolved-metas #-}
-
 open import Tutorials.Monday-Complete
 module Tutorials.Tuesday-Complete where
 
@@ -110,9 +108,22 @@ module Product where
   take xs z≤n = []
   take (x ∷ xs) (s≤s lte) = x ∷ take xs lte
 
-  -- Proof combining sigma types and equality
-  Fin-to-≤ : (i : Fin m) → Σ[ n ∈ ℕ ] to-ℕ i ≡ n × n < m
-  Fin-to-≤ i = {!!}
+  Fin-to-≤ : (i : Fin m) → to-ℕ i < m
+  Fin-to-≤ zero = s≤s z≤n
+  Fin-to-≤ (suc i) = s≤s (Fin-to-≤ i)
 
-  ≤-to-Fin : n < m → Σ[ i ∈ Fin m ] to-ℕ i ≡ n
-  ≤-to-Fin i = {!!}
+  -- Proof combining sigma types and equality
+  ≤-to-Fin : n < m → Fin m
+  ≤-to-Fin (s≤s z≤n) = zero
+  ≤-to-Fin (s≤s (s≤s i)) = suc (≤-to-Fin (s≤s i))
+
+  Fin-≤-inv : (i : Fin m) → ≤-to-Fin (Fin-to-≤ i) ≡ i
+  Fin-≤-inv zero = refl
+  Fin-≤-inv (suc zero) = refl
+  Fin-≤-inv (suc (suc i)) = cong suc (Fin-≤-inv (suc i))
+
+  ≤-Fin-inv : (lt : Σ[ n ∈ ℕ ] n < m)
+            → (to-ℕ (≤-to-Fin (snd lt)) , Fin-to-≤ (≤-to-Fin (snd lt))) ≡ lt
+  ≤-Fin-inv (.zero , s≤s z≤n) = refl
+  ≤-Fin-inv (.(suc _) , s≤s (s≤s i)) =
+    cong (map suc s≤s) (≤-Fin-inv (_ , s≤s i))

@@ -20,7 +20,7 @@ module Product where
 
   -- Pi types: dependent function types
   -- For every x of type A, the predicate P x holds
-  Π : (A : Set) → (A → Set) → Set
+  Π : (A : Set) → (Pred A) → Set
   Π A P = (x : A) → P x
 
   infix 5 _,_
@@ -98,10 +98,16 @@ module Product where
   take : Vec A m → n ≤ m → Vec A n
   take xs lte = {!!}
 
-  -- Proof combining sigma types and equality
-  Fin-to-≤ : (i : Fin m) → Σ[ n ∈ ℕ ] to-ℕ i ≡ n × n < m
+  Fin-to-≤ : (i : Fin m) → to-ℕ i < m
   Fin-to-≤ i = {!!}
 
-  ≤-to-Fin : n < m → Σ[ i ∈ Fin m ] to-ℕ i ≡ n
-  ≤-to-Fin i = {!!}
+  -- Proof combining sigma types and equality
+  ≤-to-Fin : n < m → Fin m
+  ≤-to-Fin lt = {!!}
 
+  Fin-≤-inv : (i : Fin m) → ≤-to-Fin (Fin-to-≤ i) ≡ i
+  Fin-≤-inv i = {!!}
+
+  ≤-Fin-inv : (lt : Σ[ n ∈ ℕ ] n < m)
+            → (to-ℕ (≤-to-Fin (snd lt)) , Fin-to-≤ (≤-to-Fin (snd lt))) ≡ lt
+  ≤-Fin-inv lt = {!!}
