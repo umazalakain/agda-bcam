@@ -1,6 +1,6 @@
-{-# OPTIONS --guardedness #-}
+{-# OPTIONS --guardedness --allow-unsolved-metas #-}
 
-import Tutorials.Monday-Complete
-import Tutorials.Tuesday-Complete
-import Tutorials.Wednesday-Complete
-import Tutorials.Thursday-Complete
+import Tutorials.Monday
+import Tutorials.Tuesday
+import Tutorials.Wednesday
+import Tutorials.Thursday

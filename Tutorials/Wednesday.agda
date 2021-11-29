@@ -1,6 +1,6 @@
 {-# OPTIONS --allow-unsolved-metas #-}
 
-open import Tutorials.Monday-Complete
+open import Tutorials.Monday
 open import Tutorials.Tuesday
 open List using (List; []; _∷_; _++_)
 open Vec using (Vec; []; _∷_; _!_)

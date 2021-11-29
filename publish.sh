@@ -3,6 +3,7 @@
 git branch -f gh-pages main
 git checkout gh-pages
 agda --html --html-dir=site/agda Everything.agda
+agda --html --html-dir=site/agda Everything-Complete.agda
 (cd Talk; pdflatex talk.tex; cp talk.pdf ../site/talk.pdf)
 (cd site; cabal new-run site clean; cabal new-run site build)
 git add -f site/agda docs

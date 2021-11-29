@@ -1,8 +1,8 @@
 {-# OPTIONS --allow-unsolved-metas --guardedness #-}
 
-import Tutorials.Monday-Complete as Mon
-import Tutorials.Tuesday-Complete as Tue
-import Tutorials.Wednesday-Complete as Wed
+import Tutorials.Monday as Mon
+import Tutorials.Tuesday as Tue
+import Tutorials.Wednesday as Wed
 open Mon using (⊤; tt; ℕ; zero; suc)
 open Mon.Simple using (_⊎_; inl; inr)
 open Tue.Product using (Σ; _,_; fst; snd; _×_)
