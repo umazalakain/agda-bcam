@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Agda Course @ BCAM - Agda</title>
+    <link rel="stylesheet" href="../css/default.css" />
+    <link rel="stylesheet" href="../css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../css/fontawesome.min.css" />
+    <link rel="stylesheet" href="../css/brands.min.css" />
+    <link rel="stylesheet" href="../css/solid.min.css" />
+  </head>
+
+  <body>
+    <header>
+      <div class="logo">
+        <a href="../"><img src="../images/tutorial-logo.png" /></a>
+      </div>
+      <nav>
+        <a href="../">Home</a>
+        <a href="https://forms.gle/GGTKygCcyhDQV1jH8" target="_blank">Registration</a>
+        <a href="../tutorial.html">Tutorial</a>
+        <a href="https://github.com/umazalakain/agda-bcam" target="_blank">Repository</a>
+      </nav>
+    </header>
+
+    <main role="main"><h2>Tutorial</h2>
+
+<ul>
+  <li><a href="../agda-bcam/README.html">Introduction</a></li>
+  <li>
+      Monday 22 Nov 15:00 - 17:30,
+      <a href="../agda/Tutorials.Monday.html">Original</a>
+      <a href="../agda/Tutorials.Monday-Complete.html">Completed</a>
+      <a href="https://www.youtube.com/watch?v=iAkzXIbo0Dw">Video</a>
+  </li>
+  <li>
+      Tuesday 23 Nov 15:00 - 16:30,
+      <a href="../agda/Tutorials.Tuesday.html">Original</a>
+      <a href="../agda/Tutorials.Tuesday-Complete.html">Completed</a>
+      <a href="https://www.youtube.com/watch?v=AXfoJAlg7RQ">Video</a>
+  </li>
+  <li>
+      Wednesday 24 Nov 15:00 - 17:30,
+      <a href="../agda/Tutorials.Wednesday.html">Original</a>
+      <a href="../agda/Tutorials.Wednesday-Complete.html">Completed</a>
+      <a href="https://www.youtube.com/watch?v=cqxZR5DULhg">Video</a>
+  </li>
+  <li>
+      Thursday 25 Nov 15:00 - 17:30,
+      <a href="../agda/Tutorials.Thursday.html">Original</a>
+      <a href="../agda/Tutorials.Thursday-Complete.html">Completed</a>
+      <a href="https://www.youtube.com/watch?v=bjcEcYMDyDw">Video</a>
+  </li>
+</ul>
+
+
+<h2>Agda</h2>
+
+/* Aspects. */
+.Agda .Comment       { color: #B22222 }
+.Agda .Background    {}
+.Agda .Markup        { color: #000000 }
+.Agda .Keyword       { color: #CD6600 }
+.Agda .String        { color: #B22222 }
+.Agda .Number        { color: #A020F0 }
+.Agda .Symbol        { color: #404040 }
+.Agda .PrimitiveType { color: #0000CD }
+.Agda .Pragma        { color: black   }
+.Agda .Operator      {}
+.Agda .Hole          { background: #B4EEB4 }
+
+/* NameKinds. */
+.Agda .Bound                  { color: black   }
+.Agda .Generalizable          { color: black   }
+.Agda .InductiveConstructor   { color: #008B00 }
+.Agda .CoinductiveConstructor { color: #8B7500 }
+.Agda .Datatype               { color: #0000CD }
+.Agda .Field                  { color: #EE1289 }
+.Agda .Function               { color: #0000CD }
+.Agda .Module                 { color: #A020F0 }
+.Agda .Postulate              { color: #0000CD }
+.Agda .Primitive              { color: #0000CD }
+.Agda .Record                 { color: #0000CD }
+
+/* OtherAspects. */
+.Agda .DottedPattern        {}
+.Agda .UnsolvedMeta         { color: black; background: yellow         }
+.Agda .UnsolvedConstraint   { color: black; background: yellow         }
+.Agda .TerminationProblem   { color: black; background: #FFA07A        }
+.Agda .IncompletePattern    { color: black; background: #F5DEB3        }
+.Agda .Error                { color: red;   text-decoration: underline }
+.Agda .TypeChecks           { color: black; background: #ADD8E6        }
+.Agda .Deadcode             { color: black; background: #808080        }
+.Agda .ShadowingInTelescope { color: black; background: #808080        }
+
+/* Standard attributes. */
+.Agda a { text-decoration: none }
+.Agda a[href]:hover { background-color: #B4EEB4 }
+.Agda [href].hover-highlight { background-color: #B4EEB4; }
+
+</main>
+
+    <footer>
+      <div>A tutorial by:</div>
+      <div>Uma Zalakain</div>
+      <div>
+  <div>
+    <div>
+      <ul class="list-inline text-center">
+        <li class="list-inline-item">
+          <a href="mailto:ping@umazalakain.info?subject=Agda">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+            </span>
+          </a>
+        </li>
+        <li class="list-inline-item">
+          <a href="http://umazalakain.info/">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fa fa-home fa-stack-1x fa-inverse"></i>
+            </span>
+          </a>
+        </li>
+        <li class="list-inline-item">
+          <a href="https://github.com/umazalakain">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+            </span>
+          </a>
+        </li>
+        <li class="list-inline-item">
+          <a href="https://twitter.com/@typer_uma">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+            </span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+      <div>Organized by:</div>
+      <div>BCAM - Basque Center for Applied Mathematics</div>
+      <div>
+  <div>
+    <div>
+      <ul class="list-inline text-center">
+        <li class="list-inline-item">
+          <a href="https://twitter.com/BCAMBilbao">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+            </span>
+          </a>
+        </li>
+        <li class="list-inline-item">
+          <a href="https://www.youtube.com/user/BCAMchannel">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-youtube fa-stack-1x fa-inverse"></i>
+            </span>
+          </a>
+        </li>
+        <li class="list-inline-item">
+          <a href="https://www.linkedin.com/company/bcam-basque-center-for-applied-mathematics/">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+            </span>
+          </a>
+        </li>
+        <li class="list-inline-item">
+          <a href="https://wp.bcamath.org/news/en/feed/">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+            </span>
+          </a>
+        </li>
+        <li class="list-inline-item">
+          <a href="https://mailchi.mp/31157b82299d/newsletter-subscription">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+            </span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+    </footer>
+  </body>
+</html>

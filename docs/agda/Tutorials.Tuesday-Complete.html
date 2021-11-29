@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Agda Course @ BCAM - Tutorials.Tuesday-Complete</title>
+    <link rel="stylesheet" href="../css/default.css" />
+    <link rel="stylesheet" href="../css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../css/fontawesome.min.css" />
+    <link rel="stylesheet" href="../css/brands.min.css" />
+    <link rel="stylesheet" href="../css/solid.min.css" />
+  </head>
+
+  <body>
+    <header>
+      <div class="logo">
+        <a href="../"><img src="../images/tutorial-logo.png" /></a>
+      </div>
+      <nav>
+        <a href="../">Home</a>
+        <a href="https://forms.gle/GGTKygCcyhDQV1jH8" target="_blank">Registration</a>
+        <a href="../tutorial.html">Tutorial</a>
+        <a href="https://github.com/umazalakain/agda-bcam" target="_blank">Repository</a>
+      </nav>
+    </header>
+
+    <main role="main"><h2>Tutorial</h2>
+
+<ul>
+  <li><a href="../agda-bcam/README.html">Introduction</a></li>
+  <li>
+      Monday 22 Nov 15:00 - 17:30,
+      <a href="../agda/Tutorials.Monday.html">Original</a>
+      <a href="../agda/Tutorials.Monday-Complete.html">Completed</a>
+      <a href="https://www.youtube.com/watch?v=iAkzXIbo0Dw">Video</a>
+  </li>
+  <li>
+      Tuesday 23 Nov 15:00 - 16:30,
+      <a href="../agda/Tutorials.Tuesday.html">Original</a>
+      <a href="../agda/Tutorials.Tuesday-Complete.html">Completed</a>
+      <a href="https://www.youtube.com/watch?v=AXfoJAlg7RQ">Video</a>
+  </li>
+  <li>
+      Wednesday 24 Nov 15:00 - 17:30,
+      <a href="../agda/Tutorials.Wednesday.html">Original</a>
+      <a href="../agda/Tutorials.Wednesday-Complete.html">Completed</a>
+      <a href="https://www.youtube.com/watch?v=cqxZR5DULhg">Video</a>
+  </li>
+  <li>
+      Thursday 25 Nov 15:00 - 17:30,
+      <a href="../agda/Tutorials.Thursday.html">Original</a>
+      <a href="../agda/Tutorials.Thursday-Complete.html">Completed</a>
+      <a href="https://www.youtube.com/watch?v=bjcEcYMDyDw">Video</a>
+  </li>
+</ul>
+
+
+<h2>Tutorials.Tuesday-Complete</h2>
+
+<!DOCTYPE HTML>
+<html><head><meta charset="utf-8"><title>Tutorials.Tuesday-Complete</title><link rel="stylesheet" href="Agda.css"></head><body><pre class="Agda"><a id="1" class="Keyword">open</a> <a id="6" class="Keyword">import</a> <a id="13" href="Tutorials.Monday-Complete.html" class="Module">Tutorials.Monday-Complete</a>
+<a id="39" class="Keyword">module</a> <a id="46" href="Tutorials.Tuesday-Complete.html" class="Module">Tutorials.Tuesday-Complete</a> <a id="73" class="Keyword">where</a>
+
+<a id="80" class="Comment">-----------</a>
+<a id="92" class="Comment">-- Pi and Sigma types</a>
+<a id="114" class="Comment">-----------</a>
+
+<a id="127" class="Keyword">module</a> <a id="Product"></a><a id="134" href="Tutorials.Tuesday-Complete.html#134" class="Module">Product</a> <a id="142" class="Keyword">where</a>
+  <a id="150" class="Comment">-- The open keyword opens a given module in the current namespace</a>
+  <a id="218" class="Comment">-- By default all of the public names of the module are opened</a>
+  <a id="283" class="Comment">-- The using keyword limits the imported definitions to those explicitly listed</a>
+  <a id="365" class="Keyword">open</a> <a id="370" href="Tutorials.Monday-Complete.html#12324" class="Module">Fin</a>
+  <a id="376" class="Keyword">open</a> <a id="381" href="Tutorials.Monday-Complete.html#12685" class="Module">Vec</a> <a id="385" class="Keyword">using</a> <a id="391" class="Symbol">(</a><a id="392" href="Tutorials.Monday-Complete.html#13047" class="Datatype">Vec</a><a id="395" class="Symbol">;</a> <a id="397" href="Tutorials.Monday-Complete.html#13081" class="InductiveConstructor">[]</a><a id="399" class="Symbol">;</a> <a id="401" href="Tutorials.Monday-Complete.html#13102" class="InductiveConstructor Operator">_∷_</a><a id="404" class="Symbol">)</a>
+  <a id="408" class="Keyword">open</a> <a id="413" href="Tutorials.Monday-Complete.html#1461" class="Module">Simple</a> <a id="420" class="Keyword">using</a> <a id="426" class="Symbol">(</a><a id="427" href="Tutorials.Monday-Complete.html#6498" class="Function Operator">¬_</a><a id="429" class="Symbol">)</a>
+
+  <a id="434" class="Keyword">variable</a>
+    <a id="447" href="Tutorials.Tuesday-Complete.html#447" class="Generalizable">P</a> <a id="449" href="Tutorials.Tuesday-Complete.html#449" class="Generalizable">Q</a> <a id="451" class="Symbol">:</a> <a id="453" href="Tutorials.Monday-Complete.html#7366" class="Generalizable">A</a> <a id="455" class="Symbol">→</a> <a id="457" href="Agda.Primitive.html#326" class="Primitive">Set</a>
+
+  <a id="464" class="Comment">-- Pi types: dependent function types</a>
+  <a id="504" class="Comment">-- For every x of type A, the predicate P x holds</a>
+  <a id="Product.Π"></a><a id="556" href="Tutorials.Tuesday-Complete.html#556" class="Function">Π</a> <a id="558" class="Symbol">:</a> <a id="560" class="Symbol">(</a><a id="561" href="Tutorials.Tuesday-Complete.html#561" class="Bound">A</a> <a id="563" class="Symbol">:</a> <a id="565" href="Agda.Primitive.html#326" class="Primitive">Set</a><a id="568" class="Symbol">)</a> <a id="570" class="Symbol">→</a> <a id="572" class="Symbol">(</a><a id="573" href="Tutorials.Monday-Complete.html#10497" class="Function">Pred</a> <a id="578" href="Tutorials.Tuesday-Complete.html#561" class="Bound">A</a><a id="579" class="Symbol">)</a> <a id="581" class="Symbol">→</a> <a id="583" href="Agda.Primitive.html#326" class="Primitive">Set</a>
+  <a id="589" href="Tutorials.Tuesday-Complete.html#556" class="Function">Π</a> <a id="591" href="Tutorials.Tuesday-Complete.html#591" class="Bound">A</a> <a id="593" href="Tutorials.Tuesday-Complete.html#593" class="Bound">P</a> <a id="595" class="Symbol">=</a> <a id="597" class="Symbol">(</a><a id="598" href="Tutorials.Tuesday-Complete.html#598" class="Bound">x</a> <a id="600" class="Symbol">:</a> <a id="602" href="Tutorials.Tuesday-Complete.html#591" class="Bound">A</a><a id="603" class="Symbol">)</a> <a id="605" class="Symbol">→</a> <a id="607" href="Tutorials.Tuesday-Complete.html#593" class="Bound">P</a> <a id="609" href="Tutorials.Tuesday-Complete.html#598" class="Bound">x</a>
+
+  <a id="614" class="Keyword">infix</a> <a id="620" class="Number">5</a> <a id="622" href="Tutorials.Tuesday-Complete.html#870" class="InductiveConstructor Operator">_,_</a>
+  <a id="628" class="Comment">-- Sigma types: dependent product types, existential types</a>
+  <a id="689" class="Comment">-- For this x of type A, the predicate P x holds</a>
+  <a id="740" class="Keyword">record</a> <a id="Product.Σ"></a><a id="747" href="Tutorials.Tuesday-Complete.html#747" class="Record">Σ</a> <a id="749" class="Symbol">(</a><a id="750" href="Tutorials.Tuesday-Complete.html#750" class="Bound">A</a> <a id="752" class="Symbol">:</a> <a id="754" href="Agda.Primitive.html#326" class="Primitive">Set</a><a id="757" class="Symbol">)</a> <a id="759" class="Symbol">(</a><a id="760" href="Tutorials.Tuesday-Complete.html#760" class="Bound">P</a> <a id="762" class="Symbol">:</a> <a id="764" href="Tutorials.Monday-Complete.html#10497" class="Function">Pred</a> <a id="769" href="Tutorials.Tuesday-Complete.html#750" class="Bound">A</a><a id="770" class="Symbol">)</a> <a id="772" class="Symbol">:</a> <a id="774" href="Agda.Primitive.html#326" class="Primitive">Set</a> <a id="778" class="Keyword">where</a>
+    <a id="788" class="Comment">-- In the type P fst, fst refers to a previously introduced field</a>
+    <a id="858" class="Keyword">constructor</a> <a id="Product._,_"></a><a id="870" href="Tutorials.Tuesday-Complete.html#870" class="InductiveConstructor Operator">_,_</a>
+    <a id="878" class="Keyword">field</a>
+      <a id="Product.Σ.fst"></a><a id="890" href="Tutorials.Tuesday-Complete.html#890" class="Field">fst</a> <a id="894" class="Symbol">:</a> <a id="896" href="Tutorials.Tuesday-Complete.html#750" class="Bound">A</a>
+      <a id="Product.Σ.snd"></a><a id="904" href="Tutorials.Tuesday-Complete.html#904" class="Field">snd</a> <a id="908" class="Symbol">:</a> <a id="910" href="Tutorials.Tuesday-Complete.html#760" class="Bound">P</a> <a id="912" href="Tutorials.Tuesday-Complete.html#890" class="Field">fst</a>
+
+  <a id="919" class="Keyword">open</a> <a id="924" href="Tutorials.Tuesday-Complete.html#747" class="Module">Σ</a> <a id="926" class="Keyword">public</a>
+
+  <a id="936" class="Comment">-- By depending on a boolean we can use pi types to represent product types</a>
+  <a id="Product.Π-×"></a><a id="1014" href="Tutorials.Tuesday-Complete.html#1014" class="Function">Π-×</a> <a id="1018" class="Symbol">:</a> <a id="1020" href="Agda.Primitive.html#326" class="Primitive">Set</a> <a id="1024" class="Symbol">→</a> <a id="1026" href="Agda.Primitive.html#326" class="Primitive">Set</a> <a id="1030" class="Symbol">→</a> <a id="1032" href="Agda.Primitive.html#326" class="Primitive">Set</a>
+  <a id="1038" href="Tutorials.Tuesday-Complete.html#1014" class="Function">Π-×</a> <a id="1042" href="Tutorials.Tuesday-Complete.html#1042" class="Bound">A</a> <a id="1044" href="Tutorials.Tuesday-Complete.html#1044" class="Bound">B</a> <a id="1046" class="Symbol">=</a> <a id="1048" href="Tutorials.Tuesday-Complete.html#556" class="Function">Π</a> <a id="1050" href="Tutorials.Monday-Complete.html#1301" class="Datatype">Bool</a> <a id="1055" class="Symbol">λ</a> <a id="1057" class="Keyword">where</a>
+    <a id="1067" href="Tutorials.Monday-Complete.html#1381" class="InductiveConstructor">true</a>  <a id="1073" class="Symbol">→</a> <a id="1075" href="Tutorials.Tuesday-Complete.html#1042" class="Bound">A</a>
+    <a id="1081" href="Tutorials.Monday-Complete.html#1395" class="InductiveConstructor">false</a> <a id="1087" class="Symbol">→</a> <a id="1089" href="Tutorials.Tuesday-Complete.html#1044" class="Bound">B</a>
+
+  <a id="1094" class="Comment">-- By depending on a boolean we can use sigma types to represent sum types</a>
+  <a id="Product.Σ-⊎"></a><a id="1171" href="Tutorials.Tuesday-Complete.html#1171" class="Function">Σ-⊎</a> <a id="1175" class="Symbol">:</a> <a id="1177" href="Agda.Primitive.html#326" class="Primitive">Set</a> <a id="1181" class="Symbol">→</a> <a id="1183" href="Agda.Primitive.html#326" class="Primitive">Set</a> <a id="1187" class="Symbol">→</a> <a id="1189" href="Agda.Primitive.html#326" class="Primitive">Set</a>
+  <a id="1195" href="Tutorials.Tuesday-Complete.html#1171" class="Function">Σ-⊎</a> <a id="1199" href="Tutorials.Tuesday-Complete.html#1199" class="Bound">A</a> <a id="1201" href="Tutorials.Tuesday-Complete.html#1201" class="Bound">B</a> <a id="1203" class="Symbol">=</a> <a id="1205" href="Tutorials.Tuesday-Complete.html#747" class="Record">Σ</a> <a id="1207" href="Tutorials.Monday-Complete.html#1301" class="Datatype">Bool</a> <a id="1212" class="Symbol">λ</a> <a id="1214" class="Keyword">where</a>
+    <a id="1224" href="Tutorials.Monday-Complete.html#1381" class="InductiveConstructor">true</a>  <a id="1230" class="Symbol">→</a> <a id="1232" href="Tutorials.Tuesday-Complete.html#1199" class="Bound">A</a>
+    <a id="1238" href="Tutorials.Monday-Complete.html#1395" class="InductiveConstructor">false</a> <a id="1244" class="Symbol">→</a> <a id="1246" href="Tutorials.Tuesday-Complete.html#1201" class="Bound">B</a>
+
+  <a id="1251" class="Comment">-- Use pi types to recover function types</a>
+  <a id="Product.Π-→"></a><a id="1295" href="Tutorials.Tuesday-Complete.html#1295" class="Function">Π-→</a> <a id="1299" class="Symbol">:</a> <a id="1301" href="Agda.Primitive.html#326" class="Primitive">Set</a> <a id="1305" class="Symbol">→</a> <a id="1307" href="Agda.Primitive.html#326" class="Primitive">Set</a> <a id="1311" class="Symbol">→</a> <a id="1313" href="Agda.Primitive.html#326" class="Primitive">Set</a>
+  <a id="1319" href="Tutorials.Tuesday-Complete.html#1295" class="Function">Π-→</a> <a id="1323" href="Tutorials.Tuesday-Complete.html#1323" class="Bound">A</a> <a id="1325" href="Tutorials.Tuesday-Complete.html#1325" class="Bound">B</a> <a id="1327" class="Symbol">=</a> <a id="1329" href="Tutorials.Tuesday-Complete.html#556" class="Function">Π</a> <a id="1331" href="Tutorials.Tuesday-Complete.html#1323" class="Bound">A</a> <a id="1333" class="Symbol">λ</a> <a id="1335" class="Keyword">where</a>
+    <a id="1345" class="Symbol">_</a>     <a id="1351" class="Symbol">→</a> <a id="1353" href="Tutorials.Tuesday-Complete.html#1325" class="Bound">B</a>
+
+  <a id="1358" class="Comment">-- Use sigma types to recover product types</a>
+  <a id="Product.Σ-×"></a><a id="1404" href="Tutorials.Tuesday-Complete.html#1404" class="Function">Σ-×</a> <a id="1408" class="Symbol">:</a> <a id="1410" href="Agda.Primitive.html#326" class="Primitive">Set</a> <a id="1414" class="Symbol">→</a> <a id="1416" href="Agda.Primitive.html#326" class="Primitive">Set</a> <a id="1420" class="Symbol">→</a> <a id="1422" href="Agda.Primitive.html#326" class="Primitive">Set</a>
+  <a id="1428" href="Tutorials.Tuesday-Complete.html#1404" class="Function">Σ-×</a> <a id="1432" href="Tutorials.Tuesday-Complete.html#1432" class="Bound">A</a> <a id="1434" href="Tutorials.Tuesday-Complete.html#1434" class="Bound">B</a> <a id="1436" class="Symbol">=</a> <a id="1438" href="Tutorials.Tuesday-Complete.html#747" class="Record">Σ</a> <a id="1440" href="Tutorials.Tuesday-Complete.html#1432" class="Bound">A</a> <a id="1442" class="Symbol">λ</a> <a id="1444" class="Keyword">where</a>
+    <a id="1454" class="Symbol">_</a>     <a id="1460" class="Symbol">→</a> <a id="1462" href="Tutorials.Tuesday-Complete.html#1434" class="Bound">B</a>
+
+  <a id="1467" class="Keyword">infix</a> <a id="1473" class="Number">5</a> <a id="1475" href="Tutorials.Tuesday-Complete.html#1481" class="Function Operator">_×_</a>
+  <a id="Product._×_"></a><a id="1481" href="Tutorials.Tuesday-Complete.html#1481" class="Function Operator">_×_</a> <a id="1485" class="Symbol">:</a> <a id="1487" href="Agda.Primitive.html#326" class="Primitive">Set</a> <a id="1491" class="Symbol">→</a> <a id="1493" href="Agda.Primitive.html#326" class="Primitive">Set</a> <a id="1497" class="Symbol">→</a> <a id="1499" href="Agda.Primitive.html#326" class="Primitive">Set</a>
+  <a id="1505" href="Tutorials.Tuesday-Complete.html#1481" class="Function Operator">_×_</a> <a id="1509" class="Symbol">=</a> <a id="1511" href="Tutorials.Tuesday-Complete.html#1404" class="Function">Σ-×</a>
+
+  <a id="1518" class="Comment">-- 1) If we can transform the witness and</a>
+  <a id="1562" class="Comment">-- 2) transform the predicate as per the transformation on the witness</a>
+  <a id="1635" class="Comment">-- ⇒) then we can transform a sigma type</a>
+  <a id="Product.map"></a><a id="1678" href="Tutorials.Tuesday-Complete.html#1678" class="Function">map</a> <a id="1682" class="Symbol">:</a> <a id="1684" class="Symbol">(</a><a id="1685" href="Tutorials.Tuesday-Complete.html#1685" class="Bound">f</a> <a id="1687" class="Symbol">:</a> <a id="1689" href="Tutorials.Monday-Complete.html#7366" class="Generalizable">A</a> <a id="1691" class="Symbol">→</a> <a id="1693" href="Tutorials.Monday-Complete.html#7368" class="Generalizable">B</a><a id="1694" class="Symbol">)</a> <a id="1696" class="Symbol">→</a> <a id="1698" class="Symbol">(∀</a> <a id="1701" class="Symbol">{</a><a id="1702" href="Tutorials.Tuesday-Complete.html#1702" class="Bound">x</a><a id="1703" class="Symbol">}</a> <a id="1705" class="Symbol">→</a> <a id="1707" href="Tutorials.Tuesday-Complete.html#447" class="Generalizable">P</a> <a id="1709" href="Tutorials.Tuesday-Complete.html#1702" class="Bound">x</a> <a id="1711" class="Symbol">→</a> <a id="1713" href="Tutorials.Tuesday-Complete.html#449" class="Generalizable">Q</a> <a id="1715" class="Symbol">(</a><a id="1716" href="Tutorials.Tuesday-Complete.html#1685" class="Bound">f</a> <a id="1718" href="Tutorials.Tuesday-Complete.html#1702" class="Bound">x</a><a id="1719" class="Symbol">))</a> <a id="1722" class="Symbol">→</a> <a id="1724" class="Symbol">(</a><a id="1725" href="Tutorials.Tuesday-Complete.html#747" class="Record">Σ</a> <a id="1727" href="Tutorials.Monday-Complete.html#7366" class="Generalizable">A</a> <a id="1729" href="Tutorials.Tuesday-Complete.html#447" class="Generalizable">P</a> <a id="1731" class="Symbol">→</a> <a id="1733" href="Tutorials.Tuesday-Complete.html#747" class="Record">Σ</a> <a id="1735" href="Tutorials.Monday-Complete.html#7368" class="Generalizable">B</a> <a id="1737" href="Tutorials.Tuesday-Complete.html#449" class="Generalizable">Q</a><a id="1738" class="Symbol">)</a>
+  <a id="1742" href="Tutorials.Tuesday-Complete.html#1678" class="Function">map</a> <a id="1746" href="Tutorials.Tuesday-Complete.html#1746" class="Bound">f</a> <a id="1748" href="Tutorials.Tuesday-Complete.html#1748" class="Bound">g</a> <a id="1750" class="Symbol">(</a><a id="1751" href="Tutorials.Tuesday-Complete.html#1751" class="Bound">x</a> <a id="1753" href="Tutorials.Tuesday-Complete.html#870" class="InductiveConstructor Operator">,</a> <a id="1755" href="Tutorials.Tuesday-Complete.html#1755" class="Bound">y</a><a id="1756" class="Symbol">)</a> <a id="1758" class="Symbol">=</a> <a id="1760" class="Symbol">(</a><a id="1761" href="Tutorials.Tuesday-Complete.html#1746" class="Bound">f</a> <a id="1763" href="Tutorials.Tuesday-Complete.html#1751" class="Bound">x</a> <a id="1765" href="Tutorials.Tuesday-Complete.html#870" class="InductiveConstructor Operator">,</a> <a id="1767" href="Tutorials.Tuesday-Complete.html#1748" class="Bound">g</a> <a id="1769" href="Tutorials.Tuesday-Complete.html#1755" class="Bound">y</a><a id="1770" class="Symbol">)</a>
+
+  <a id="1775" class="Comment">-- The syntax keyword introduces notation that can include binders</a>
+  <a id="1844" class="Keyword">infix</a> <a id="1850" class="Number">4</a> <a id="1852" href="Tutorials.Tuesday-Complete.html#1863" class="Function">Σ-syntax</a>
+  <a id="Product.Σ-syntax"></a><a id="1863" href="Tutorials.Tuesday-Complete.html#1863" class="Function">Σ-syntax</a> <a id="1872" class="Symbol">:</a> <a id="1874" class="Symbol">(</a><a id="1875" href="Tutorials.Tuesday-Complete.html#1875" class="Bound">A</a> <a id="1877" class="Symbol">:</a> <a id="1879" href="Agda.Primitive.html#326" class="Primitive">Set</a><a id="1882" class="Symbol">)</a> <a id="1884" class="Symbol">→</a> <a id="1886" class="Symbol">(</a><a id="1887" href="Tutorials.Tuesday-Complete.html#1875" class="Bound">A</a> <a id="1889" class="Symbol">→</a> <a id="1891" href="Agda.Primitive.html#326" class="Primitive">Set</a><a id="1894" class="Symbol">)</a> <a id="1896" class="Symbol">→</a> <a id="1898" href="Agda.Primitive.html#326" class="Primitive">Set</a>
+  <a id="1904" href="Tutorials.Tuesday-Complete.html#1863" class="Function">Σ-syntax</a> <a id="1913" class="Symbol">=</a> <a id="1915" href="Tutorials.Tuesday-Complete.html#747" class="Record">Σ</a>
+  <a id="1919" class="Keyword">syntax</a> <a id="1926" href="Tutorials.Tuesday-Complete.html#1863" class="Function">Σ-syntax</a> <a id="1935" class="Bound">A</a> <a id="1937" class="Symbol">(λ</a> <a id="1940" class="Bound">x</a> <a id="1942" class="Symbol">→</a> <a id="1944" class="Bound">B</a><a id="1945" class="Symbol">)</a> <a id="1947" class="Symbol">=</a> <a id="1949" class="Function">Σ[</a> <a id="1952" class="Bound">x</a> <a id="1954" class="Function">∈</a> <a id="1956" class="Bound">A</a> <a id="1958" class="Function">]</a> <a id="1960" class="Bound">B</a>
+
+  <a id="Product.example₁"></a><a id="1965" href="Tutorials.Tuesday-Complete.html#1965" class="Function">example₁</a> <a id="1974" class="Symbol">:</a> <a id="1976" href="Tutorials.Tuesday-Complete.html#747" class="Record">Σ</a> <a id="1978" href="Tutorials.Monday-Complete.html#7437" class="Datatype">ℕ</a> <a id="1980" href="Tutorials.Monday-Complete.html#11603" class="Datatype">EvenData</a>
+  <a id="1991" href="Tutorials.Tuesday-Complete.html#1965" class="Function">example₁</a> <a id="2000" class="Symbol">=</a> <a id="2002" class="Number">0</a> <a id="2004" href="Tutorials.Tuesday-Complete.html#870" class="InductiveConstructor Operator">,</a> <a id="2006" href="Tutorials.Monday-Complete.html#11640" class="InductiveConstructor">zero</a>
+
+  <a id="Product.one-is-not-even"></a><a id="2014" href="Tutorials.Tuesday-Complete.html#2014" class="Function">one-is-not-even</a> <a id="2030" class="Symbol">:</a> <a id="2032" href="Tutorials.Monday-Complete.html#6498" class="Function Operator">¬</a> <a id="2034" href="Tutorials.Monday-Complete.html#11603" class="Datatype">EvenData</a> <a id="2043" class="Number">1</a>
+  <a id="2047" href="Tutorials.Tuesday-Complete.html#2014" class="Function">one-is-not-even</a> <a id="2063" class="Symbol">()</a>
+
+  <a id="Product.example₂"></a><a id="2069" href="Tutorials.Tuesday-Complete.html#2069" class="Function">example₂</a> <a id="2078" class="Symbol">:</a> <a id="2080" href="Tutorials.Monday-Complete.html#6498" class="Function Operator">¬</a> <a id="2082" href="Tutorials.Tuesday-Complete.html#556" class="Function">Π</a> <a id="2084" href="Tutorials.Monday-Complete.html#7437" class="Datatype">ℕ</a> <a id="2086" href="Tutorials.Monday-Complete.html#11603" class="Datatype">EvenData</a>
+  <a id="2097" href="Tutorials.Tuesday-Complete.html#2069" class="Function">example₂</a> <a id="2106" href="Tutorials.Tuesday-Complete.html#2106" class="Bound">f</a> <a id="2108" class="Symbol">=</a> <a id="2110" href="Tutorials.Tuesday-Complete.html#2014" class="Function">one-is-not-even</a> <a id="2126" class="Symbol">(</a><a id="2127" href="Tutorials.Tuesday-Complete.html#2106" class="Bound">f</a> <a id="2129" class="Number">1</a><a id="2130" class="Symbol">)</a>
+
+
+  <a id="Product.¬∘"></a><a id="2136" href="Tutorials.Tuesday-Complete.html#2136" class="Function">¬∘</a> <a id="2139" class="Symbol">:</a> <a id="2141" href="Tutorials.Monday-Complete.html#10497" class="Function">Pred</a> <a id="2146" href="Tutorials.Monday-Complete.html#7366" class="Generalizable">A</a> <a id="2148" class="Symbol">→</a> <a id="2150" href="Tutorials.Monday-Complete.html#10497" class="Function">Pred</a> <a id="2155" href="Tutorials.Monday-Complete.html#7366" class="Generalizable">A</a>
+  <a id="2159" href="Tutorials.Tuesday-Complete.html#2136" class="Function">¬∘</a> <a id="2162" href="Tutorials.Tuesday-Complete.html#2162" class="Bound">P</a> <a id="2164" class="Symbol">=</a> <a id="2166" href="Tutorials.Monday-Complete.html#6498" class="Function Operator">¬_</a> <a id="2169" href="Tutorials.Monday-Complete.html#12198" class="Function Operator">∘</a> <a id="2171" href="Tutorials.Tuesday-Complete.html#2162" class="Bound">P</a>
+
+  <a id="2176" class="Comment">-- These can be proven regardless of A</a>
+
+  <a id="Product.¬∃⇒∀¬"></a><a id="2218" href="Tutorials.Tuesday-Complete.html#2218" class="Function">¬∃⇒∀¬</a> <a id="2224" class="Symbol">:</a> <a id="2226" href="Tutorials.Monday-Complete.html#6498" class="Function Operator">¬</a> <a id="2228" class="Symbol">(</a><a id="2229" href="Tutorials.Tuesday-Complete.html#747" class="Record">Σ</a> <a id="2231" href="Tutorials.Monday-Complete.html#7366" class="Generalizable">A</a> <a id="2233" href="Tutorials.Tuesday-Complete.html#447" class="Generalizable">P</a><a id="2234" class="Symbol">)</a> <a id="2236" class="Symbol">→</a> <a id="2238" href="Tutorials.Tuesday-Complete.html#556" class="Function">Π</a> <a id="2240" href="Tutorials.Monday-Complete.html#7366" class="Generalizable">A</a> <a id="2242" class="Symbol">(</a><a id="2243" href="Tutorials.Tuesday-Complete.html#2136" class="Function">¬∘</a> <a id="2246" href="Tutorials.Tuesday-Complete.html#447" class="Generalizable">P</a><a id="2247" class="Symbol">)</a>
+  <a id="2251" href="Tutorials.Tuesday-Complete.html#2218" class="Function">¬∃⇒∀¬</a> <a id="2257" href="Tutorials.Tuesday-Complete.html#2257" class="Bound">f</a> <a id="2259" href="Tutorials.Tuesday-Complete.html#2259" class="Bound">x</a> <a id="2261" href="Tutorials.Tuesday-Complete.html#2261" class="Bound">px</a> <a id="2264" class="Symbol">=</a> <a id="2266" href="Tutorials.Tuesday-Complete.html#2257" class="Bound">f</a> <a id="2268" class="Symbol">(</a><a id="2269" href="Tutorials.Tuesday-Complete.html#2259" class="Bound">x</a> <a id="2271" href="Tutorials.Tuesday-Complete.html#870" class="InductiveConstructor Operator">,</a> <a id="2273" href="Tutorials.Tuesday-Complete.html#2261" class="Bound">px</a><a id="2275" class="Symbol">)</a>
+
+  <a id="Product.∃¬⇒¬∀"></a><a id="2280" href="Tutorials.Tuesday-Complete.html#2280" class="Function">∃¬⇒¬∀</a> <a id="2286" class="Symbol">:</a> <a id="2288" href="Tutorials.Tuesday-Complete.html#747" class="Record">Σ</a> <a id="2290" href="Tutorials.Monday-Complete.html#7366" class="Generalizable">A</a> <a id="2292" class="Symbol">(</a><a id="2293" href="Tutorials.Tuesday-Complete.html#2136" class="Function">¬∘</a> <a id="2296" href="Tutorials.Tuesday-Complete.html#447" class="Generalizable">P</a><a id="2297" class="Symbol">)</a> <a id="2299" class="Symbol">→</a> <a id="2301" href="Tutorials.Monday-Complete.html#6498" class="Function Operator">¬</a> <a id="2303" href="Tutorials.Tuesday-Complete.html#556" class="Function">Π</a> <a id="2305" href="Tutorials.Monday-Complete.html#7366" class="Generalizable">A</a> <a id="2307" href="Tutorials.Tuesday-Complete.html#447" class="Generalizable">P</a>
+  <a id="2311" href="Tutorials.Tuesday-Complete.html#2280" class="Function">∃¬⇒¬∀</a> <a id="2317" class="Symbol">(</a><a id="2318" href="Tutorials.Tuesday-Complete.html#2318" class="Bound">a</a> <a id="2320" href="Tutorials.Tuesday-Complete.html#870" class="InductiveConstructor Operator">,</a> <a id="2322" href="Tutorials.Tuesday-Complete.html#2322" class="Bound">¬pa</a><a id="2325" class="Symbol">)</a> <a id="2327" href="Tutorials.Tuesday-Complete.html#2327" class="Bound">f</a> <a id="2329" class="Symbol">=</a> <a id="2331" href="Tutorials.Tuesday-Complete.html#2322" class="Bound">¬pa</a> <a id="2335" class="Symbol">(</a><a id="2336" href="Tutorials.Tuesday-Complete.html#2327" class="Bound">f</a> <a id="2338" href="Tutorials.Tuesday-Complete.html#2318" class="Bound">a</a><a id="2339" class="Symbol">)</a>
+
+  <a id="Product.∀¬⇒¬∃"></a><a id="2344" href="Tutorials.Tuesday-Complete.html#2344" class="Function">∀¬⇒¬∃</a> <a id="2350" class="Symbol">:</a> <a id="2352" href="Tutorials.Tuesday-Complete.html#556" class="Function">Π</a> <a id="2354" href="Tutorials.Monday-Complete.html#7366" class="Generalizable">A</a> <a id="2356" class="Symbol">(</a><a id="2357" href="Tutorials.Tuesday-Complete.html#2136" class="Function">¬∘</a> <a id="2360" href="Tutorials.Tuesday-Complete.html#447" class="Generalizable">P</a><a id="2361" class="Symbol">)</a> <a id="2363" class="Symbol">→</a> <a id="2365" href="Tutorials.Monday-Complete.html#6498" class="Function Operator">¬</a> <a id="2367" href="Tutorials.Tuesday-Complete.html#747" class="Record">Σ</a> <a id="2369" href="Tutorials.Monday-Complete.html#7366" class="Generalizable">A</a> <a id="2371" href="Tutorials.Tuesday-Complete.html#447" class="Generalizable">P</a>
+  <a id="2375" href="Tutorials.Tuesday-Complete.html#2344" class="Function">∀¬⇒¬∃</a> <a id="2381" href="Tutorials.Tuesday-Complete.html#2381" class="Bound">f</a> <a id="2383" class="Symbol">(</a><a id="2384" href="Tutorials.Tuesday-Complete.html#2384" class="Bound">a</a> <a id="2386" href="Tutorials.Tuesday-Complete.html#870" class="InductiveConstructor Operator">,</a> <a id="2388" href="Tutorials.Tuesday-Complete.html#2388" class="Bound">pa</a><a id="2390" class="Symbol">)</a> <a id="2392" class="Symbol">=</a> <a id="2394" href="Tutorials.Tuesday-Complete.html#2381" class="Bound">f</a> <a id="2396" href="Tutorials.Tuesday-Complete.html#2384" class="Bound">a</a> <a id="2398" href="Tutorials.Tuesday-Complete.html#2388" class="Bound">pa</a>
+
+  <a id="2404" class="Comment">-- Works in classical, not in constructive mathematics</a>
+  <a id="2461" class="Keyword">postulate</a> <a id="Product.¬∀⇒∃¬"></a><a id="2471" href="Tutorials.Tuesday-Complete.html#2471" class="Postulate">¬∀⇒∃¬</a> <a id="2477" class="Symbol">:</a> <a id="2479" href="Tutorials.Monday-Complete.html#6498" class="Function Operator">¬</a> <a id="2481" href="Tutorials.Tuesday-Complete.html#556" class="Function">Π</a> <a id="2483" href="Tutorials.Monday-Complete.html#7366" class="Generalizable">A</a> <a id="2485" href="Tutorials.Tuesday-Complete.html#447" class="Generalizable">P</a> <a id="2487" class="Symbol">→</a> <a id="2489" href="Tutorials.Tuesday-Complete.html#747" class="Record">Σ</a> <a id="2491" href="Tutorials.Monday-Complete.html#7366" class="Generalizable">A</a> <a id="2493" class="Symbol">(</a><a id="2494" href="Tutorials.Tuesday-Complete.html#2136" class="Function">¬∘</a> <a id="2497" href="Tutorials.Tuesday-Complete.html#447" class="Generalizable">P</a><a id="2498" class="Symbol">)</a>
+
+  <a id="2503" class="Comment">-- Show that ≤ is antisymmetric</a>
+  <a id="Product.≤-≡"></a><a id="2537" href="Tutorials.Tuesday-Complete.html#2537" class="Function">≤-≡</a> <a id="2541" class="Symbol">:</a> <a id="2543" href="Tutorials.Monday-Complete.html#8262" class="Generalizable">n</a> <a id="2545" href="Tutorials.Monday-Complete.html#14134" class="Datatype Operator">≤</a> <a id="2547" href="Tutorials.Monday-Complete.html#8264" class="Generalizable">m</a> <a id="2549" class="Symbol">→</a> <a id="2551" href="Tutorials.Monday-Complete.html#8264" class="Generalizable">m</a> <a id="2553" href="Tutorials.Monday-Complete.html#14134" class="Datatype Operator">≤</a> <a id="2555" href="Tutorials.Monday-Complete.html#8262" class="Generalizable">n</a> <a id="2557" class="Symbol">→</a> <a id="2559" href="Tutorials.Monday-Complete.html#8262" class="Generalizable">n</a> <a id="2561" href="Tutorials.Monday-Complete.html#15000" class="Datatype Operator">≡</a> <a id="2563" href="Tutorials.Monday-Complete.html#8264" class="Generalizable">m</a>
+  <a id="2567" href="Tutorials.Tuesday-Complete.html#2537" class="Function">≤-≡</a> <a id="2571" href="Tutorials.Monday-Complete.html#14154" class="InductiveConstructor">z≤n</a> <a id="2575" href="Tutorials.Monday-Complete.html#14154" class="InductiveConstructor">z≤n</a> <a id="2579" class="Symbol">=</a> <a id="2581" href="Tutorials.Monday-Complete.html#15030" class="InductiveConstructor">refl</a>
+  <a id="2588" href="Tutorials.Tuesday-Complete.html#2537" class="Function">≤-≡</a> <a id="2592" class="Symbol">(</a><a id="2593" href="Tutorials.Monday-Complete.html#14180" class="InductiveConstructor">s≤s</a> <a id="2597" href="Tutorials.Tuesday-Complete.html#2597" class="Bound">x</a><a id="2598" class="Symbol">)</a> <a id="2600" class="Symbol">(</a><a id="2601" href="Tutorials.Monday-Complete.html#14180" class="InductiveConstructor">s≤s</a> <a id="2605" href="Tutorials.Tuesday-Complete.html#2605" class="Bound">y</a><a id="2606" class="Symbol">)</a> <a id="2608" class="Symbol">=</a> <a id="2610" href="Tutorials.Monday-Complete.html#15387" class="Function">cong</a> <a id="2615" href="Tutorials.Monday-Complete.html#7793" class="InductiveConstructor">suc</a> <a id="2619" class="Symbol">(</a><a id="2620" href="Tutorials.Tuesday-Complete.html#2537" class="Function">≤-≡</a> <a id="2624" href="Tutorials.Tuesday-Complete.html#2597" class="Bound">x</a> <a id="2626" href="Tutorials.Tuesday-Complete.html#2605" class="Bound">y</a><a id="2627" class="Symbol">)</a>
+
+  <a id="2632" class="Comment">-- By using n ≤ m instead of Fin m we can mention n in the output</a>
+  <a id="Product.take"></a><a id="2700" href="Tutorials.Tuesday-Complete.html#2700" class="Function">take</a> <a id="2705" class="Symbol">:</a> <a id="2707" href="Tutorials.Monday-Complete.html#13047" class="Datatype">Vec</a> <a id="2711" href="Tutorials.Monday-Complete.html#7366" class="Generalizable">A</a> <a id="2713" href="Tutorials.Monday-Complete.html#8264" class="Generalizable">m</a> <a id="2715" class="Symbol">→</a> <a id="2717" href="Tutorials.Monday-Complete.html#8262" class="Generalizable">n</a> <a id="2719" href="Tutorials.Monday-Complete.html#14134" class="Datatype Operator">≤</a> <a id="2721" href="Tutorials.Monday-Complete.html#8264" class="Generalizable">m</a> <a id="2723" class="Symbol">→</a> <a id="2725" href="Tutorials.Monday-Complete.html#13047" class="Datatype">Vec</a> <a id="2729" href="Tutorials.Monday-Complete.html#7366" class="Generalizable">A</a> <a id="2731" href="Tutorials.Monday-Complete.html#8262" class="Generalizable">n</a>
+  <a id="2735" href="Tutorials.Tuesday-Complete.html#2700" class="Function">take</a> <a id="2740" href="Tutorials.Tuesday-Complete.html#2740" class="Bound">xs</a> <a id="2743" href="Tutorials.Monday-Complete.html#14154" class="InductiveConstructor">z≤n</a> <a id="2747" class="Symbol">=</a> <a id="2749" href="Tutorials.Monday-Complete.html#13081" class="InductiveConstructor">[]</a>
+  <a id="2754" href="Tutorials.Tuesday-Complete.html#2700" class="Function">take</a> <a id="2759" class="Symbol">(</a><a id="2760" href="Tutorials.Tuesday-Complete.html#2760" class="Bound">x</a> <a id="2762" href="Tutorials.Monday-Complete.html#13102" class="InductiveConstructor Operator">∷</a> <a id="2764" href="Tutorials.Tuesday-Complete.html#2764" class="Bound">xs</a><a id="2766" class="Symbol">)</a> <a id="2768" class="Symbol">(</a><a id="2769" href="Tutorials.Monday-Complete.html#14180" class="InductiveConstructor">s≤s</a> <a id="2773" href="Tutorials.Tuesday-Complete.html#2773" class="Bound">lte</a><a id="2776" class="Symbol">)</a> <a id="2778" class="Symbol">=</a> <a id="2780" href="Tutorials.Tuesday-Complete.html#2760" class="Bound">x</a> <a id="2782" href="Tutorials.Monday-Complete.html#13102" class="InductiveConstructor Operator">∷</a> <a id="2784" href="Tutorials.Tuesday-Complete.html#2700" class="Function">take</a> <a id="2789" href="Tutorials.Tuesday-Complete.html#2764" class="Bound">xs</a> <a id="2792" href="Tutorials.Tuesday-Complete.html#2773" class="Bound">lte</a>
+
+  <a id="Product.Fin-to-≤"></a><a id="2799" href="Tutorials.Tuesday-Complete.html#2799" class="Function">Fin-to-≤</a> <a id="2808" class="Symbol">:</a> <a id="2810" class="Symbol">(</a><a id="2811" href="Tutorials.Tuesday-Complete.html#2811" class="Bound">i</a> <a id="2813" class="Symbol">:</a> <a id="2815" href="Tutorials.Monday-Complete.html#12388" class="Datatype">Fin</a> <a id="2819" href="Tutorials.Monday-Complete.html#8264" class="Generalizable">m</a><a id="2820" class="Symbol">)</a> <a id="2822" class="Symbol">→</a> <a id="2824" href="Tutorials.Monday-Complete.html#12611" class="Function">to-ℕ</a> <a id="2829" href="Tutorials.Tuesday-Complete.html#2811" class="Bound">i</a> <a id="2831" href="Tutorials.Monday-Complete.html#14209" class="Function Operator">&lt;</a> <a id="2833" href="Tutorials.Monday-Complete.html#8264" class="Generalizable">m</a>
+  <a id="2837" href="Tutorials.Tuesday-Complete.html#2799" class="Function">Fin-to-≤</a> <a id="2846" href="Tutorials.Monday-Complete.html#12412" class="InductiveConstructor">zero</a> <a id="2851" class="Symbol">=</a> <a id="2853" href="Tutorials.Monday-Complete.html#14180" class="InductiveConstructor">s≤s</a> <a id="2857" href="Tutorials.Monday-Complete.html#14154" class="InductiveConstructor">z≤n</a>
+  <a id="2863" href="Tutorials.Tuesday-Complete.html#2799" class="Function">Fin-to-≤</a> <a id="2872" class="Symbol">(</a><a id="2873" href="Tutorials.Monday-Complete.html#12435" class="InductiveConstructor">suc</a> <a id="2877" href="Tutorials.Tuesday-Complete.html#2877" class="Bound">i</a><a id="2878" class="Symbol">)</a> <a id="2880" class="Symbol">=</a> <a id="2882" href="Tutorials.Monday-Complete.html#14180" class="InductiveConstructor">s≤s</a> <a id="2886" class="Symbol">(</a><a id="2887" href="Tutorials.Tuesday-Complete.html#2799" class="Function">Fin-to-≤</a> <a id="2896" href="Tutorials.Tuesday-Complete.html#2877" class="Bound">i</a><a id="2897" class="Symbol">)</a>
+
+  <a id="2902" class="Comment">-- Proof combining sigma types and equality</a>
+  <a id="Product.≤-to-Fin"></a><a id="2948" href="Tutorials.Tuesday-Complete.html#2948" class="Function">≤-to-Fin</a> <a id="2957" class="Symbol">:</a> <a id="2959" href="Tutorials.Monday-Complete.html#8262" class="Generalizable">n</a> <a id="2961" href="Tutorials.Monday-Complete.html#14209" class="Function Operator">&lt;</a> <a id="2963" href="Tutorials.Monday-Complete.html#8264" class="Generalizable">m</a> <a id="2965" class="Symbol">→</a> <a id="2967" href="Tutorials.Monday-Complete.html#12388" class="Datatype">Fin</a> <a id="2971" href="Tutorials.Monday-Complete.html#8264" class="Generalizable">m</a>
+  <a id="2975" href="Tutorials.Tuesday-Complete.html#2948" class="Function">≤-to-Fin</a> <a id="2984" class="Symbol">(</a><a id="2985" href="Tutorials.Monday-Complete.html#14180" class="InductiveConstructor">s≤s</a> <a id="2989" href="Tutorials.Monday-Complete.html#14154" class="InductiveConstructor">z≤n</a><a id="2992" class="Symbol">)</a> <a id="2994" class="Symbol">=</a> <a id="2996" href="Tutorials.Monday-Complete.html#12412" class="InductiveConstructor">zero</a>
+  <a id="3003" href="Tutorials.Tuesday-Complete.html#2948" class="Function">≤-to-Fin</a> <a id="3012" class="Symbol">(</a><a id="3013" href="Tutorials.Monday-Complete.html#14180" class="InductiveConstructor">s≤s</a> <a id="3017" class="Symbol">(</a><a id="3018" href="Tutorials.Monday-Complete.html#14180" class="InductiveConstructor">s≤s</a> <a id="3022" href="Tutorials.Tuesday-Complete.html#3022" class="Bound">i</a><a id="3023" class="Symbol">))</a> <a id="3026" class="Symbol">=</a> <a id="3028" href="Tutorials.Monday-Complete.html#12435" class="InductiveConstructor">suc</a> <a id="3032" class="Symbol">(</a><a id="3033" href="Tutorials.Tuesday-Complete.html#2948" class="Function">≤-to-Fin</a> <a id="3042" class="Symbol">(</a><a id="3043" href="Tutorials.Monday-Complete.html#14180" class="InductiveConstructor">s≤s</a> <a id="3047" href="Tutorials.Tuesday-Complete.html#3022" class="Bound">i</a><a id="3048" class="Symbol">))</a>
+
+  <a id="Product.Fin-≤-inv"></a><a id="3054" href="Tutorials.Tuesday-Complete.html#3054" class="Function">Fin-≤-inv</a> <a id="3064" class="Symbol">:</a> <a id="3066" class="Symbol">(</a><a id="3067" href="Tutorials.Tuesday-Complete.html#3067" class="Bound">i</a> <a id="3069" class="Symbol">:</a> <a id="3071" href="Tutorials.Monday-Complete.html#12388" class="Datatype">Fin</a> <a id="3075" href="Tutorials.Monday-Complete.html#8264" class="Generalizable">m</a><a id="3076" class="Symbol">)</a> <a id="3078" class="Symbol">→</a> <a id="3080" href="Tutorials.Tuesday-Complete.html#2948" class="Function">≤-to-Fin</a> <a id="3089" class="Symbol">(</a><a id="3090" href="Tutorials.Tuesday-Complete.html#2799" class="Function">Fin-to-≤</a> <a id="3099" href="Tutorials.Tuesday-Complete.html#3067" class="Bound">i</a><a id="3100" class="Symbol">)</a> <a id="3102" href="Tutorials.Monday-Complete.html#15000" class="Datatype Operator">≡</a> <a id="3104" href="Tutorials.Tuesday-Complete.html#3067" class="Bound">i</a>
+  <a id="3108" href="Tutorials.Tuesday-Complete.html#3054" class="Function">Fin-≤-inv</a> <a id="3118" href="Tutorials.Monday-Complete.html#12412" class="InductiveConstructor">zero</a> <a id="3123" class="Symbol">=</a> <a id="3125" href="Tutorials.Monday-Complete.html#15030" class="InductiveConstructor">refl</a>
+  <a id="3132" href="Tutorials.Tuesday-Complete.html#3054" class="Function">Fin-≤-inv</a> <a id="3142" class="Symbol">(</a><a id="3143" href="Tutorials.Monday-Complete.html#12435" class="InductiveConstructor">suc</a> <a id="3147" href="Tutorials.Monday-Complete.html#12412" class="InductiveConstructor">zero</a><a id="3151" class="Symbol">)</a> <a id="3153" class="Symbol">=</a> <a id="3155" href="Tutorials.Monday-Complete.html#15030" class="InductiveConstructor">refl</a>
+  <a id="3162" href="Tutorials.Tuesday-Complete.html#3054" class="Function">Fin-≤-inv</a> <a id="3172" class="Symbol">(</a><a id="3173" href="Tutorials.Monday-Complete.html#12435" class="InductiveConstructor">suc</a> <a id="3177" class="Symbol">(</a><a id="3178" href="Tutorials.Monday-Complete.html#12435" class="InductiveConstructor">suc</a> <a id="3182" href="Tutorials.Tuesday-Complete.html#3182" class="Bound">i</a><a id="3183" class="Symbol">))</a> <a id="3186" class="Symbol">=</a> <a id="3188" href="Tutorials.Monday-Complete.html#15387" class="Function">cong</a> <a id="3193" href="Tutorials.Monday-Complete.html#12435" class="InductiveConstructor">suc</a> <a id="3197" class="Symbol">(</a><a id="3198" href="Tutorials.Tuesday-Complete.html#3054" class="Function">Fin-≤-inv</a> <a id="3208" class="Symbol">(</a><a id="3209" href="Tutorials.Monday-Complete.html#12435" class="InductiveConstructor">suc</a> <a id="3213" href="Tutorials.Tuesday-Complete.html#3182" class="Bound">i</a><a id="3214" class="Symbol">))</a>
+
+  <a id="Product.≤-Fin-inv"></a><a id="3220" href="Tutorials.Tuesday-Complete.html#3220" class="Function">≤-Fin-inv</a> <a id="3230" class="Symbol">:</a> <a id="3232" class="Symbol">(</a><a id="3233" href="Tutorials.Tuesday-Complete.html#3233" class="Bound">lt</a> <a id="3236" class="Symbol">:</a> <a id="3238" href="Tutorials.Tuesday-Complete.html#1863" class="Function">Σ[</a> <a id="3241" href="Tutorials.Tuesday-Complete.html#3241" class="Bound">n</a> <a id="3243" href="Tutorials.Tuesday-Complete.html#1863" class="Function">∈</a> <a id="3245" href="Tutorials.Monday-Complete.html#7437" class="Datatype">ℕ</a> <a id="3247" href="Tutorials.Tuesday-Complete.html#1863" class="Function">]</a> <a id="3249" href="Tutorials.Tuesday-Complete.html#3241" class="Bound">n</a> <a id="3251" href="Tutorials.Monday-Complete.html#14209" class="Function Operator">&lt;</a> <a id="3253" href="Tutorials.Monday-Complete.html#8264" class="Generalizable">m</a><a id="3254" class="Symbol">)</a>
+            <a id="3268" class="Symbol">→</a> <a id="3270" class="Symbol">(</a><a id="3271" href="Tutorials.Monday-Complete.html#12611" class="Function">to-ℕ</a> <a id="3276" class="Symbol">(</a><a id="3277" href="Tutorials.Tuesday-Complete.html#2948" class="Function">≤-to-Fin</a> <a id="3286" class="Symbol">(</a><a id="3287" href="Tutorials.Tuesday-Complete.html#904" class="Field">snd</a> <a id="3291" href="Tutorials.Tuesday-Complete.html#3233" class="Bound">lt</a><a id="3293" class="Symbol">))</a> <a id="3296" href="Tutorials.Tuesday-Complete.html#870" class="InductiveConstructor Operator">,</a> <a id="3298" href="Tutorials.Tuesday-Complete.html#2799" class="Function">Fin-to-≤</a> <a id="3307" class="Symbol">(</a><a id="3308" href="Tutorials.Tuesday-Complete.html#2948" class="Function">≤-to-Fin</a> <a id="3317" class="Symbol">(</a><a id="3318" href="Tutorials.Tuesday-Complete.html#904" class="Field">snd</a> <a id="3322" href="Tutorials.Tuesday-Complete.html#3233" class="Bound">lt</a><a id="3324" class="Symbol">)))</a> <a id="3328" href="Tutorials.Monday-Complete.html#15000" class="Datatype Operator">≡</a> <a id="3330" href="Tutorials.Tuesday-Complete.html#3233" class="Bound">lt</a>
+  <a id="3335" href="Tutorials.Tuesday-Complete.html#3220" class="Function">≤-Fin-inv</a> <a id="3345" class="Symbol">(</a><a id="3346" class="DottedPattern Symbol">.</a><a id="3347" href="Tutorials.Monday-Complete.html#7782" class="DottedPattern InductiveConstructor">zero</a> <a id="3352" href="Tutorials.Tuesday-Complete.html#870" class="InductiveConstructor Operator">,</a> <a id="3354" href="Tutorials.Monday-Complete.html#14180" class="InductiveConstructor">s≤s</a> <a id="3358" href="Tutorials.Monday-Complete.html#14154" class="InductiveConstructor">z≤n</a><a id="3361" class="Symbol">)</a> <a id="3363" class="Symbol">=</a> <a id="3365" href="Tutorials.Monday-Complete.html#15030" class="InductiveConstructor">refl</a>
+  <a id="3372" href="Tutorials.Tuesday-Complete.html#3220" class="Function">≤-Fin-inv</a> <a id="3382" class="Symbol">(</a><a id="3383" class="DottedPattern Symbol">.(</a><a id="3385" href="Tutorials.Monday-Complete.html#7793" class="DottedPattern InductiveConstructor">suc</a> <a id="3389" class="DottedPattern Symbol">_)</a> <a id="3392" href="Tutorials.Tuesday-Complete.html#870" class="InductiveConstructor Operator">,</a> <a id="3394" href="Tutorials.Monday-Complete.html#14180" class="InductiveConstructor">s≤s</a> <a id="3398" class="Symbol">(</a><a id="3399" href="Tutorials.Monday-Complete.html#14180" class="InductiveConstructor">s≤s</a> <a id="3403" href="Tutorials.Tuesday-Complete.html#3403" class="Bound">i</a><a id="3404" class="Symbol">))</a> <a id="3407" class="Symbol">=</a>
+    <a id="3413" href="Tutorials.Monday-Complete.html#15387" class="Function">cong</a> <a id="3418" class="Symbol">(</a><a id="3419" href="Tutorials.Tuesday-Complete.html#1678" class="Function">map</a> <a id="3423" href="Tutorials.Monday-Complete.html#7793" class="InductiveConstructor">suc</a> <a id="3427" href="Tutorials.Monday-Complete.html#14180" class="InductiveConstructor">s≤s</a><a id="3430" class="Symbol">)</a> <a id="3432" class="Symbol">(</a><a id="3433" href="Tutorials.Tuesday-Complete.html#3220" class="Function">≤-Fin-inv</a> <a id="3443" class="Symbol">(_</a> <a id="3446" href="Tutorials.Tuesday-Complete.html#870" class="InductiveConstructor Operator">,</a> <a id="3448" href="Tutorials.Monday-Complete.html#14180" class="InductiveConstructor">s≤s</a> <a id="3452" href="Tutorials.Tuesday-Complete.html#3403" class="Bound">i</a><a id="3453" class="Symbol">))</a>
+</pre></body></html>
+</main>
+
+    <footer>
+      <div>A tutorial by:</div>
+      <div>Uma Zalakain</div>
+      <div>
+  <div>
+    <div>
+      <ul class="list-inline text-center">
+        <li class="list-inline-item">
+          <a href="mailto:ping@umazalakain.info?subject=Agda">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+            </span>
+          </a>
+        </li>
+        <li class="list-inline-item">
+          <a href="http://umazalakain.info/">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fa fa-home fa-stack-1x fa-inverse"></i>
+            </span>
+          </a>
+        </li>
+        <li class="list-inline-item">
+          <a href="https://github.com/umazalakain">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+            </span>
+          </a>
+        </li>
+        <li class="list-inline-item">
+          <a href="https://twitter.com/@typer_uma">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+            </span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+      <div>Organized by:</div>
+      <div>BCAM - Basque Center for Applied Mathematics</div>
+      <div>
+  <div>
+    <div>
+      <ul class="list-inline text-center">
+        <li class="list-inline-item">
+          <a href="https://twitter.com/BCAMBilbao">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+            </span>
+          </a>
+        </li>
+        <li class="list-inline-item">
+          <a href="https://www.youtube.com/user/BCAMchannel">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-youtube fa-stack-1x fa-inverse"></i>
+            </span>
+          </a>
+        </li>
+        <li class="list-inline-item">
+          <a href="https://www.linkedin.com/company/bcam-basque-center-for-applied-mathematics/">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+            </span>
+          </a>
+        </li>
+        <li class="list-inline-item">
+          <a href="https://wp.bcamath.org/news/en/feed/">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+            </span>
+          </a>
+        </li>
+        <li class="list-inline-item">
+          <a href="https://mailchi.mp/31157b82299d/newsletter-subscription">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+            </span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+    </footer>
+  </body>
+</html>

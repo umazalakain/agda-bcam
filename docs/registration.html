@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Agda Course @ BCAM - registration</title>
+    <link rel="stylesheet" href="./css/default.css" />
+    <link rel="stylesheet" href="./css/bootstrap.min.css" />
+    <link rel="stylesheet" href="./css/fontawesome.min.css" />
+    <link rel="stylesheet" href="./css/brands.min.css" />
+    <link rel="stylesheet" href="./css/solid.min.css" />
+  </head>
+
+  <body>
+    <header>
+      <div class="logo">
+        <a href="./"><img src="./images/tutorial-logo.png" /></a>
+      </div>
+      <nav>
+        <a href="./">Home</a>
+        <a href="https://forms.gle/GGTKygCcyhDQV1jH8" target="_blank">Registration</a>
+        <a href="./tutorial.html">Tutorial</a>
+        <a href="https://github.com/umazalakain/agda-bcam" target="_blank">Repository</a>
+      </nav>
+    </header>
+
+    <main role="main"><head>
+  <link rel="stylesheet" href="./css/registration.css" />
+</head>
+
+<form id="form" name="registration-form" accept-charset="utf-8" action="https://formspree.io/f/xdoyjqpz" method="post">
+  <fieldset id="form-inputs">
+    <label for="izena">Names</label>
+    <input type="text" name="Name" id="name" placeholder="Maryam Mirzakhani" required />
+    <label for="email-address">Email</label>
+    <input type="email" name="Email" id="email-address" placeholder="researcher@bcamath.org" required />
+    <label for="eskualdea">Institution</label>
+    <input type="text" name="Instituion" id="institution" placeholder="BCAM" required />
+    <fieldset id="form-selects">
+      <label for="position" class="form-label select-label">Current Position</label>
+      <select name="postion" id="position" required>
+        <option value="internship" selected>Internship</option>
+        <option value="phd-student">PhD Student</option>
+        <option value="postdoc">Postdoc</option>
+        <option value="professor">Professor</option>
+        <option value="lecturer">Lecturer</option>
+        <option value="researcher">Researcher</option>
+      </select>
+      <label for="other">Expertise/specialization</label>
+      <textarea rows="2" name="Comments" id="comments" placeholder="geometer"></textarea>
+      <label for="other">Research keywords (separated by semicolons)</label>
+      <textarea rows="2" name="Comments" id="comments" placeholder="difficult topic; tough topic"></textarea>
+      <label for="attendance" class="form-label select-label">Attendance</label>
+      <select name="Attendance" class="select" id="attendance" required>
+        <option value="face-to-face" selected>In person</option>
+        <option value="virtual">Virtual</option>
+      </select>
+      <label for="proof-assistant" class="form-label select-label">Experience with proof assistants</label>
+      <select name="ProofAssistant" class="select" id="proof-assistant" required>
+        <option value="no" selected>No</option>
+        <option value="Yes">Yes</option>
+      </select>
+      <label for="proof-assistant" class="form-label select-label">Select multiple proof assistants if needed</label>
+      <select name="ProofAssistantWhich" class="select" id="proof-assistant-which" multiple>
+        <option value="agda">Agda</option>
+        <option value="coq">Coq</option>
+        <option value="lean">Lean</option>
+        <option value="other">Other</option>
+      </select>
+      <label for="haskell" class="form-label select-label">Experience with Haskell</label>
+      <select name="Haskell" class="select" id="haskell" required>
+        <option value="no" selected>No</option>
+        <option value="Yes">Yes</option>
+      </select>
+      <label for="os">Operating System</label>
+      <select name="Operating System" id="os" required>
+        <option value="linux" selected>Linux</option>
+        <option value="macos">MacOS</option>
+        <option value="windows">Windows</option>
+      </select>
+    </fieldset>
+    <label for="other">Comments</label>
+    <textarea rows="3" name="Comments" id="comments" placeholder></textarea>
+    <input type="hidden" name="_subject" id="email-subject" value="Agda Tutorial - Registration" />
+  </fieldset>
+  <button id="form-button">
+    <span>Send</span>
+  </button>
+
+  <p id="form-status"></p>
+</form>
+
+<script>
+  var form = document.getElementById("form");
+
+  async function handleSubmit(event) {
+    event.preventDefault();
+    var status = document.getElementById("form-status");
+    var data = new FormData(event.target);
+    fetch(event.target.action, {
+      method: form.method,
+      body: data,
+      headers: {
+        Accept: "application/json",
+      },
+    })
+      .then((response) => {
+        status.innerHTML = "Thanks for registering to the tutorial!";
+        form.reset();
+      })
+      .catch((error) => {
+        status.innerHTML =
+          "Oops! Error while submitting the registration form.";
+      });
+  }
+  form.addEventListener("submit", handleSubmit);
+</script>
+</main>
+
+    <footer>
+      <div>A tutorial by:</div>
+      <div>Uma Zalakain</div>
+      <div>
+  <div>
+    <div>
+      <ul class="list-inline text-center">
+        <li class="list-inline-item">
+          <a href="mailto:ping@umazalakain.info?subject=Agda">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+            </span>
+          </a>
+        </li>
+        <li class="list-inline-item">
+          <a href="http://umazalakain.info/">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fa fa-home fa-stack-1x fa-inverse"></i>
+            </span>
+          </a>
+        </li>
+        <li class="list-inline-item">
+          <a href="https://github.com/umazalakain">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+            </span>
+          </a>
+        </li>
+        <li class="list-inline-item">
+          <a href="https://twitter.com/@typer_uma">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+            </span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+      <div>Organized by:</div>
+      <div>BCAM - Basque Center for Applied Mathematics</div>
+      <div>
+  <div>
+    <div>
+      <ul class="list-inline text-center">
+        <li class="list-inline-item">
+          <a href="https://twitter.com/BCAMBilbao">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+            </span>
+          </a>
+        </li>
+        <li class="list-inline-item">
+          <a href="https://www.youtube.com/user/BCAMchannel">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-youtube fa-stack-1x fa-inverse"></i>
+            </span>
+          </a>
+        </li>
+        <li class="list-inline-item">
+          <a href="https://www.linkedin.com/company/bcam-basque-center-for-applied-mathematics/">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+            </span>
+          </a>
+        </li>
+        <li class="list-inline-item">
+          <a href="https://wp.bcamath.org/news/en/feed/">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+            </span>
+          </a>
+        </li>
+        <li class="list-inline-item">
+          <a href="https://mailchi.mp/31157b82299d/newsletter-subscription">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+            </span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+    </footer>
+  </body>
+</html>

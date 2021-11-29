@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Agda Course @ BCAM - Tutorials.Thursday</title>
+    <link rel="stylesheet" href="../css/default.css" />
+    <link rel="stylesheet" href="../css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../css/fontawesome.min.css" />
+    <link rel="stylesheet" href="../css/brands.min.css" />
+    <link rel="stylesheet" href="../css/solid.min.css" />
+  </head>
+
+  <body>
+    <header>
+      <div class="logo">
+        <a href="../"><img src="../images/tutorial-logo.png" /></a>
+      </div>
+      <nav>
+        <a href="../">Home</a>
+        <a href="https://forms.gle/GGTKygCcyhDQV1jH8" target="_blank">Registration</a>
+        <a href="../tutorial.html">Tutorial</a>
+        <a href="https://github.com/umazalakain/agda-bcam" target="_blank">Repository</a>
+      </nav>
+    </header>
+
+    <main role="main"><h2>Tutorial</h2>
+
+<ul>
+  <li><a href="../agda-bcam/README.html">Introduction</a></li>
+  <li>
+      Monday 22 Nov 15:00 - 17:30,
+      <a href="../agda/Tutorials.Monday.html">Original</a>
+      <a href="../agda/Tutorials.Monday-Complete.html">Completed</a>
+      <a href="https://www.youtube.com/watch?v=iAkzXIbo0Dw">Video</a>
+  </li>
+  <li>
+      Tuesday 23 Nov 15:00 - 16:30,
+      <a href="../agda/Tutorials.Tuesday.html">Original</a>
+      <a href="../agda/Tutorials.Tuesday-Complete.html">Completed</a>
+      <a href="https://www.youtube.com/watch?v=AXfoJAlg7RQ">Video</a>
+  </li>
+  <li>
+      Wednesday 24 Nov 15:00 - 17:30,
+      <a href="../agda/Tutorials.Wednesday.html">Original</a>
+      <a href="../agda/Tutorials.Wednesday-Complete.html">Completed</a>
+      <a href="https://www.youtube.com/watch?v=cqxZR5DULhg">Video</a>
+  </li>
+  <li>
+      Thursday 25 Nov 15:00 - 17:30,
+      <a href="../agda/Tutorials.Thursday.html">Original</a>
+      <a href="../agda/Tutorials.Thursday-Complete.html">Completed</a>
+      <a href="https://www.youtube.com/watch?v=bjcEcYMDyDw">Video</a>
+  </li>
+</ul>
+
+
+<h2>Tutorials.Thursday</h2>
+
+<!DOCTYPE HTML>
+<html><head><meta charset="utf-8"><title>Tutorials.Thursday</title><link rel="stylesheet" href="Agda.css"></head><body><pre class="Agda"><a id="1" class="Symbol">{-#</a> <a id="5" class="Keyword">OPTIONS</a> <a id="13" class="Pragma">--allow-unsolved-metas</a> <a id="36" class="Pragma">--guardedness</a> <a id="50" class="Symbol">#-}</a>
+
+<a id="55" class="Keyword">import</a> <a id="62" href="Tutorials.Monday.html" class="Module">Tutorials.Monday</a> <a id="79" class="Symbol">as</a> <a id="82" class="Module">Mon</a>
+<a id="86" class="Keyword">import</a> <a id="93" href="Tutorials.Tuesday.html" class="Module">Tutorials.Tuesday</a> <a id="111" class="Symbol">as</a> <a id="114" class="Module">Tue</a>
+<a id="118" class="Keyword">import</a> <a id="125" href="Tutorials.Wednesday.html" class="Module">Tutorials.Wednesday</a> <a id="145" class="Symbol">as</a> <a id="148" class="Module">Wed</a>
+<a id="152" class="Keyword">open</a> <a id="157" href="Tutorials.Monday.html" class="Module">Mon</a> <a id="161" class="Keyword">using</a> <a id="167" class="Symbol">(</a><a id="168" href="Tutorials.Monday.html#980" class="Record">⊤</a><a id="169" class="Symbol">;</a> <a id="171" href="Tutorials.Monday.html#1323" class="InductiveConstructor">tt</a><a id="173" class="Symbol">;</a> <a id="175" href="Tutorials.Monday.html#7200" class="Datatype">ℕ</a><a id="176" class="Symbol">;</a> <a id="178" href="Tutorials.Monday.html#7545" class="InductiveConstructor">zero</a><a id="182" class="Symbol">;</a> <a id="184" href="Tutorials.Monday.html#7556" class="InductiveConstructor">suc</a><a id="187" class="Symbol">)</a>
+<a id="189" class="Keyword">open</a> <a id="194" href="Tutorials.Monday.html#1492" class="Module">Mon.Simple</a> <a id="205" class="Keyword">using</a> <a id="211" class="Symbol">(</a><a id="212" href="Tutorials.Monday.html#2629" class="Datatype Operator">_⊎_</a><a id="215" class="Symbol">;</a> <a id="217" href="Tutorials.Monday.html#3252" class="InductiveConstructor">inl</a><a id="220" class="Symbol">;</a> <a id="222" href="Tutorials.Monday.html#3272" class="InductiveConstructor">inr</a><a id="225" class="Symbol">)</a>
+<a id="227" class="Keyword">open</a> <a id="232" href="Tutorials.Tuesday.html#156" class="Module">Tue.Product</a> <a id="244" class="Keyword">using</a> <a id="250" class="Symbol">(</a><a id="251" href="Tutorials.Tuesday.html#769" class="Record">Σ</a><a id="252" class="Symbol">;</a> <a id="254" href="Tutorials.Tuesday.html#892" class="InductiveConstructor Operator">_,_</a><a id="257" class="Symbol">;</a> <a id="259" href="Tutorials.Tuesday.html#912" class="Field">fst</a><a id="262" class="Symbol">;</a> <a id="264" href="Tutorials.Tuesday.html#926" class="Field">snd</a><a id="267" class="Symbol">;</a> <a id="269" href="Tutorials.Tuesday.html#1503" class="Function Operator">_×_</a><a id="272" class="Symbol">)</a>
+
+<a id="275" class="Keyword">module</a> <a id="282" href="Tutorials.Thursday.html" class="Module">Tutorials.Thursday</a> <a id="301" class="Keyword">where</a>
+
+<a id="308" class="Keyword">variable</a>
+  <a id="319" href="Tutorials.Thursday.html#319" class="Generalizable">A</a> <a id="321" href="Tutorials.Thursday.html#321" class="Generalizable">B</a> <a id="323" href="Tutorials.Thursday.html#323" class="Generalizable">C</a> <a id="325" href="Tutorials.Thursday.html#325" class="Generalizable">S</a> <a id="327" class="Symbol">:</a> <a id="329" href="Agda.Primitive.html#326" class="Primitive">Set</a>
+
+<a id="334" class="Comment">-- Things that we skipped so far</a>
+<a id="367" class="Comment">--------------------------------</a>
+
+<a id="401" class="Keyword">module</a> <a id="WithAbstraction"></a><a id="408" href="Tutorials.Thursday.html#408" class="Module">WithAbstraction</a> <a id="424" class="Keyword">where</a>
+  <a id="432" class="Keyword">open</a> <a id="437" href="Tutorials.Monday.html" class="Module">Mon</a> <a id="441" class="Keyword">using</a> <a id="447" class="Symbol">(</a><a id="448" href="Tutorials.Monday.html#1332" class="Datatype">Bool</a><a id="452" class="Symbol">;</a> <a id="454" href="Tutorials.Monday.html#1412" class="InductiveConstructor">true</a><a id="458" class="Symbol">;</a> <a id="460" href="Tutorials.Monday.html#1426" class="InductiveConstructor">false</a><a id="465" class="Symbol">;</a> <a id="467" href="Tutorials.Monday.html#10070" class="Function">Pred</a><a id="471" class="Symbol">;</a> <a id="473" href="Tutorials.Monday.html#14234" class="Datatype Operator">_≡_</a><a id="476" class="Symbol">;</a> <a id="478" href="Tutorials.Monday.html#14264" class="InductiveConstructor">refl</a><a id="482" class="Symbol">;</a> <a id="484" href="Tutorials.Monday.html#8372" class="Function Operator">_+_</a><a id="487" class="Symbol">;</a> <a id="489" href="Tutorials.Monday.html#15248" class="Function">subst</a><a id="494" class="Symbol">;</a> <a id="496" href="Tutorials.Monday.html#15484" class="Function">+-comm</a><a id="502" class="Symbol">)</a>
+  <a id="506" class="Keyword">open</a> <a id="511" href="Tutorials.Monday.html#9079" class="Module">Mon.List</a> <a id="520" class="Keyword">using</a> <a id="526" class="Symbol">(</a><a id="527" href="Tutorials.Monday.html#9118" class="Datatype">List</a><a id="531" class="Symbol">;</a> <a id="533" href="Tutorials.Monday.html#9345" class="InductiveConstructor">[]</a><a id="535" class="Symbol">;</a> <a id="537" href="Tutorials.Monday.html#9362" class="InductiveConstructor Operator">_∷_</a><a id="540" class="Symbol">)</a>
+
+  <a id="545" class="Comment">-- With abstraction</a>
+  <a id="567" class="Comment">-- You can use &quot;with abstraction&quot; to pattern match on intermediary computations</a>
+  <a id="649" class="Comment">-- These can be nested, or executed simultaneously</a>
+
+  <a id="WithAbstraction.filter"></a><a id="703" href="Tutorials.Thursday.html#703" class="Function">filter</a> <a id="710" class="Symbol">:</a> <a id="712" class="Symbol">(</a><a id="713" href="Tutorials.Thursday.html#319" class="Generalizable">A</a> <a id="715" class="Symbol">→</a> <a id="717" href="Tutorials.Monday.html#1332" class="Datatype">Bool</a><a id="721" class="Symbol">)</a> <a id="723" class="Symbol">→</a> <a id="725" href="Tutorials.Monday.html#9118" class="Datatype">List</a> <a id="730" href="Tutorials.Thursday.html#319" class="Generalizable">A</a> <a id="732" class="Symbol">→</a> <a id="734" href="Tutorials.Monday.html#9118" class="Datatype">List</a> <a id="739" href="Tutorials.Thursday.html#319" class="Generalizable">A</a>
+  <a id="743" href="Tutorials.Thursday.html#703" class="Function">filter</a> <a id="750" href="Tutorials.Thursday.html#750" class="Bound">f</a> <a id="752" href="Tutorials.Monday.html#9345" class="InductiveConstructor">[]</a> <a id="755" class="Symbol">=</a> <a id="757" href="Tutorials.Monday.html#9345" class="InductiveConstructor">[]</a>
+  <a id="762" href="Tutorials.Thursday.html#703" class="Function">filter</a> <a id="769" href="Tutorials.Thursday.html#769" class="Bound">f</a> <a id="771" class="Symbol">(</a><a id="772" href="Tutorials.Thursday.html#772" class="Bound">x</a> <a id="774" href="Tutorials.Monday.html#9362" class="InductiveConstructor Operator">∷</a> <a id="776" href="Tutorials.Thursday.html#776" class="Bound">xs</a><a id="778" class="Symbol">)</a> <a id="780" class="Keyword">with</a> <a id="785" href="Tutorials.Thursday.html#769" class="Bound">f</a> <a id="787" href="Tutorials.Thursday.html#772" class="Bound">x</a>
+  <a id="791" href="Tutorials.Thursday.html#703" class="Function">filter</a> <a id="798" href="Tutorials.Thursday.html#798" class="Bound">f</a> <a id="800" class="Symbol">(</a><a id="801" href="Tutorials.Thursday.html#801" class="Bound">x</a> <a id="803" href="Tutorials.Monday.html#9362" class="InductiveConstructor Operator">∷</a> <a id="805" href="Tutorials.Thursday.html#805" class="Bound">xs</a><a id="807" class="Symbol">)</a> <a id="809" class="Symbol">|</a> <a id="811" href="Tutorials.Monday.html#1412" class="InductiveConstructor">true</a> <a id="816" class="Symbol">=</a> <a id="818" href="Tutorials.Thursday.html#801" class="Bound">x</a> <a id="820" href="Tutorials.Monday.html#9362" class="InductiveConstructor Operator">∷</a> <a id="822" href="Tutorials.Thursday.html#703" class="Function">filter</a> <a id="829" href="Tutorials.Thursday.html#798" class="Bound">f</a> <a id="831" href="Tutorials.Thursday.html#805" class="Bound">xs</a>
+  <a id="836" href="Tutorials.Thursday.html#703" class="Function">filter</a> <a id="843" href="Tutorials.Thursday.html#843" class="Bound">f</a> <a id="845" class="Symbol">(</a><a id="846" href="Tutorials.Thursday.html#846" class="Bound">x</a> <a id="848" href="Tutorials.Monday.html#9362" class="InductiveConstructor Operator">∷</a> <a id="850" href="Tutorials.Thursday.html#850" class="Bound">xs</a><a id="852" class="Symbol">)</a> <a id="854" class="Symbol">|</a> <a id="856" href="Tutorials.Monday.html#1426" class="InductiveConstructor">false</a> <a id="862" class="Symbol">=</a> <a id="864" href="Tutorials.Thursday.html#703" class="Function">filter</a> <a id="871" href="Tutorials.Thursday.html#843" class="Bound">f</a> <a id="873" href="Tutorials.Thursday.html#850" class="Bound">xs</a>
+
+  <a id="879" class="Comment">-- Alternative notation</a>
+  <a id="WithAbstraction.filter′"></a><a id="905" href="Tutorials.Thursday.html#905" class="Function">filter′</a> <a id="913" class="Symbol">:</a> <a id="915" class="Symbol">(</a><a id="916" href="Tutorials.Thursday.html#319" class="Generalizable">A</a> <a id="918" class="Symbol">→</a> <a id="920" href="Tutorials.Monday.html#1332" class="Datatype">Bool</a><a id="924" class="Symbol">)</a> <a id="926" class="Symbol">→</a> <a id="928" href="Tutorials.Monday.html#9118" class="Datatype">List</a> <a id="933" href="Tutorials.Thursday.html#319" class="Generalizable">A</a> <a id="935" class="Symbol">→</a> <a id="937" href="Tutorials.Monday.html#9118" class="Datatype">List</a> <a id="942" href="Tutorials.Thursday.html#319" class="Generalizable">A</a>
+  <a id="946" href="Tutorials.Thursday.html#905" class="Function">filter′</a> <a id="954" href="Tutorials.Thursday.html#954" class="Bound">f</a> <a id="956" href="Tutorials.Monday.html#9345" class="InductiveConstructor">[]</a> <a id="959" class="Symbol">=</a> <a id="961" href="Tutorials.Monday.html#9345" class="InductiveConstructor">[]</a>
+  <a id="966" href="Tutorials.Thursday.html#905" class="Function">filter′</a> <a id="974" href="Tutorials.Thursday.html#974" class="Bound">f</a> <a id="976" class="Symbol">(</a><a id="977" href="Tutorials.Thursday.html#977" class="Bound">x</a> <a id="979" href="Tutorials.Monday.html#9362" class="InductiveConstructor Operator">∷</a> <a id="981" href="Tutorials.Thursday.html#981" class="Bound">xs</a><a id="983" class="Symbol">)</a> <a id="985" class="Keyword">with</a> <a id="990" href="Tutorials.Thursday.html#974" class="Bound">f</a> <a id="992" href="Tutorials.Thursday.html#977" class="Bound">x</a>
+  <a id="996" class="Symbol">...</a>                <a id="1015" class="Symbol">|</a> <a id="1017" href="Tutorials.Monday.html#1412" class="InductiveConstructor">true</a> <a id="1022" class="Symbol">=</a> <a id="1024" class="Bound">x</a> <a id="1026" href="Tutorials.Monday.html#9362" class="InductiveConstructor Operator">∷</a> <a id="1028" href="Tutorials.Thursday.html#905" class="Function">filter′</a> <a id="1036" class="Bound">f</a> <a id="1038" class="Bound">xs</a>
+  <a id="1043" class="Symbol">...</a>                <a id="1062" class="Symbol">|</a> <a id="1064" href="Tutorials.Monday.html#1426" class="InductiveConstructor">false</a> <a id="1070" class="Symbol">=</a> <a id="1072" href="Tutorials.Thursday.html#905" class="Function">filter′</a> <a id="1080" class="Bound">f</a> <a id="1082" class="Bound">xs</a>
+
+
+  <a id="1089" class="Comment">-- The goal type and the type of the arguments are generalised over the value of the scrutinee</a>
+  <a id="WithAbstraction.thm"></a><a id="1186" href="Tutorials.Thursday.html#1186" class="Function">thm</a> <a id="1190" class="Symbol">:</a> <a id="1192" class="Symbol">{</a><a id="1193" href="Tutorials.Thursday.html#1193" class="Bound">P</a> <a id="1195" class="Symbol">:</a> <a id="1197" href="Tutorials.Monday.html#10070" class="Function">Pred</a> <a id="1202" href="Tutorials.Monday.html#7200" class="Datatype">ℕ</a><a id="1203" class="Symbol">}</a> <a id="1205" class="Symbol">(</a><a id="1206" href="Tutorials.Thursday.html#1206" class="Bound">n</a> <a id="1208" href="Tutorials.Thursday.html#1208" class="Bound">m</a> <a id="1210" class="Symbol">:</a> <a id="1212" href="Tutorials.Monday.html#7200" class="Datatype">ℕ</a><a id="1213" class="Symbol">)</a> <a id="1215" class="Symbol">→</a> <a id="1217" href="Tutorials.Thursday.html#1193" class="Bound">P</a> <a id="1219" class="Symbol">(</a><a id="1220" href="Tutorials.Thursday.html#1206" class="Bound">n</a> <a id="1222" href="Tutorials.Monday.html#8372" class="Function Operator">+</a> <a id="1224" href="Tutorials.Thursday.html#1208" class="Bound">m</a><a id="1225" class="Symbol">)</a> <a id="1227" class="Symbol">→</a> <a id="1229" href="Tutorials.Thursday.html#1193" class="Bound">P</a> <a id="1231" class="Symbol">(</a><a id="1232" href="Tutorials.Thursday.html#1208" class="Bound">m</a> <a id="1234" href="Tutorials.Monday.html#8372" class="Function Operator">+</a> <a id="1236" href="Tutorials.Thursday.html#1206" class="Bound">n</a><a id="1237" class="Symbol">)</a>
+  <a id="1241" class="Comment">-- 1) Here (p : P (n + m)) and (eq : n + m ≡ m + n)</a>
+  <a id="1295" class="Comment">-- thm n m p with +-comm n m</a>
+  <a id="1326" class="Comment">-- thm n m p | eq = {!!}</a>
+  <a id="1353" class="Comment">-- 2) Here (p : P x) and (eq : x ≡ m + n)</a>
+  <a id="1397" class="Comment">-- thm n m p with n + m | +-comm n m</a>
+  <a id="1436" class="Comment">-- thm n m p | x | eq = {!!}</a>
+  <a id="1467" class="Comment">-- 3) Pattern matching we get (p : P (m + n)), the dot signifies that the argument is uniquely determined</a>
+  <a id="1575" href="Tutorials.Thursday.html#1186" class="Function">thm</a> <a id="1579" href="Tutorials.Thursday.html#1579" class="Bound">n</a> <a id="1581" href="Tutorials.Thursday.html#1581" class="Bound">m</a> <a id="1583" href="Tutorials.Thursday.html#1583" class="Bound">p</a> <a id="1585" class="Keyword">with</a> <a id="1590" href="Tutorials.Thursday.html#1579" class="Bound">n</a> <a id="1592" href="Tutorials.Monday.html#8372" class="Function Operator">+</a> <a id="1594" href="Tutorials.Thursday.html#1581" class="Bound">m</a> <a id="1596" class="Symbol">|</a> <a id="1598" href="Tutorials.Monday.html#15484" class="Function">+-comm</a> <a id="1605" href="Tutorials.Thursday.html#1579" class="Bound">n</a> <a id="1607" href="Tutorials.Thursday.html#1581" class="Bound">m</a>
+  <a id="1611" href="Tutorials.Thursday.html#1186" class="Function">thm</a> <a id="1615" href="Tutorials.Thursday.html#1615" class="Bound">n</a> <a id="1617" href="Tutorials.Thursday.html#1617" class="Bound">m</a> <a id="1619" href="Tutorials.Thursday.html#1619" class="Bound">p</a> <a id="1621" class="Symbol">|</a> <a id="1623" class="DottedPattern Symbol">.(</a><a id="1625" href="Tutorials.Thursday.html#1617" class="DottedPattern Bound">m</a> <a id="1627" href="Tutorials.Monday.html#8372" class="DottedPattern Function Operator">+</a> <a id="1629" href="Tutorials.Thursday.html#1615" class="DottedPattern Bound">n</a><a id="1630" class="DottedPattern Symbol">)</a> <a id="1632" class="Symbol">|</a> <a id="1634" href="Tutorials.Monday.html#14264" class="InductiveConstructor">refl</a> <a id="1639" class="Symbol">=</a> <a id="1641" href="Tutorials.Thursday.html#1619" class="Bound">p</a>
+
+  <a id="1646" class="Comment">-- This is such a common formula that there is special syntax for it</a>
+  <a id="WithAbstraction.thm′"></a><a id="1717" href="Tutorials.Thursday.html#1717" class="Function">thm′</a> <a id="1722" class="Symbol">:</a> <a id="1724" class="Symbol">{</a><a id="1725" href="Tutorials.Thursday.html#1725" class="Bound">P</a> <a id="1727" class="Symbol">:</a> <a id="1729" href="Tutorials.Monday.html#10070" class="Function">Pred</a> <a id="1734" href="Tutorials.Monday.html#7200" class="Datatype">ℕ</a><a id="1735" class="Symbol">}</a> <a id="1737" class="Symbol">(</a><a id="1738" href="Tutorials.Thursday.html#1738" class="Bound">n</a> <a id="1740" href="Tutorials.Thursday.html#1740" class="Bound">m</a> <a id="1742" class="Symbol">:</a> <a id="1744" href="Tutorials.Monday.html#7200" class="Datatype">ℕ</a><a id="1745" class="Symbol">)</a> <a id="1747" class="Symbol">→</a> <a id="1749" href="Tutorials.Thursday.html#1725" class="Bound">P</a> <a id="1751" class="Symbol">(</a><a id="1752" href="Tutorials.Thursday.html#1738" class="Bound">n</a> <a id="1754" href="Tutorials.Monday.html#8372" class="Function Operator">+</a> <a id="1756" href="Tutorials.Thursday.html#1740" class="Bound">m</a><a id="1757" class="Symbol">)</a> <a id="1759" class="Symbol">→</a> <a id="1761" href="Tutorials.Thursday.html#1725" class="Bound">P</a> <a id="1763" class="Symbol">(</a><a id="1764" href="Tutorials.Thursday.html#1740" class="Bound">m</a> <a id="1766" href="Tutorials.Monday.html#8372" class="Function Operator">+</a> <a id="1768" href="Tutorials.Thursday.html#1738" class="Bound">n</a><a id="1769" class="Symbol">)</a>
+  <a id="1773" href="Tutorials.Thursday.html#1717" class="Function">thm′</a> <a id="1778" href="Tutorials.Thursday.html#1778" class="Bound">n</a> <a id="1780" href="Tutorials.Thursday.html#1780" class="Bound">m</a> <a id="1782" href="Tutorials.Thursday.html#1782" class="Bound">p</a> <a id="1784" class="Keyword">rewrite</a> <a id="1792" href="Tutorials.Monday.html#15484" class="Function">+-comm</a> <a id="1799" href="Tutorials.Thursday.html#1778" class="Bound">n</a> <a id="1801" href="Tutorials.Thursday.html#1780" class="Bound">m</a> <a id="1803" class="Symbol">=</a> <a id="1805" href="Tutorials.Thursday.html#1782" class="Bound">p</a>
+
+  <a id="1810" class="Comment">-- We could use subst to be more explicit about *where* the rewrite happens</a>
+  <a id="WithAbstraction.thm′′"></a><a id="1888" href="Tutorials.Thursday.html#1888" class="Function">thm′′</a> <a id="1894" class="Symbol">:</a> <a id="1896" class="Symbol">{</a><a id="1897" href="Tutorials.Thursday.html#1897" class="Bound">P</a> <a id="1899" class="Symbol">:</a> <a id="1901" href="Tutorials.Monday.html#10070" class="Function">Pred</a> <a id="1906" href="Tutorials.Monday.html#7200" class="Datatype">ℕ</a><a id="1907" class="Symbol">}</a> <a id="1909" class="Symbol">(</a><a id="1910" href="Tutorials.Thursday.html#1910" class="Bound">n</a> <a id="1912" href="Tutorials.Thursday.html#1912" class="Bound">m</a> <a id="1914" class="Symbol">:</a> <a id="1916" href="Tutorials.Monday.html#7200" class="Datatype">ℕ</a><a id="1917" class="Symbol">)</a> <a id="1919" class="Symbol">→</a> <a id="1921" href="Tutorials.Thursday.html#1897" class="Bound">P</a> <a id="1923" class="Symbol">(</a><a id="1924" href="Tutorials.Thursday.html#1910" class="Bound">n</a> <a id="1926" href="Tutorials.Monday.html#8372" class="Function Operator">+</a> <a id="1928" href="Tutorials.Thursday.html#1912" class="Bound">m</a><a id="1929" class="Symbol">)</a> <a id="1931" class="Symbol">→</a> <a id="1933" href="Tutorials.Thursday.html#1897" class="Bound">P</a> <a id="1935" class="Symbol">(</a><a id="1936" href="Tutorials.Thursday.html#1912" class="Bound">m</a> <a id="1938" href="Tutorials.Monday.html#8372" class="Function Operator">+</a> <a id="1940" href="Tutorials.Thursday.html#1910" class="Bound">n</a><a id="1941" class="Symbol">)</a>
+  <a id="1945" href="Tutorials.Thursday.html#1888" class="Function">thm′′</a> <a id="1951" class="Symbol">{</a><a id="1952" href="Tutorials.Thursday.html#1952" class="Bound">P</a><a id="1953" class="Symbol">}</a> <a id="1955" href="Tutorials.Thursday.html#1955" class="Bound">n</a> <a id="1957" href="Tutorials.Thursday.html#1957" class="Bound">m</a> <a id="1959" href="Tutorials.Thursday.html#1959" class="Bound">p</a> <a id="1961" class="Symbol">=</a> <a id="1963" href="Tutorials.Monday.html#15248" class="Function">subst</a> <a id="1969" class="Symbol">{</a><a id="1970" class="Argument">P</a> <a id="1972" class="Symbol">=</a> <a id="1974" href="Tutorials.Thursday.html#1952" class="Bound">P</a><a id="1975" class="Symbol">}</a> <a id="1977" class="Symbol">(</a><a id="1978" href="Tutorials.Monday.html#15484" class="Function">+-comm</a> <a id="1985" href="Tutorials.Thursday.html#1955" class="Bound">n</a> <a id="1987" href="Tutorials.Thursday.html#1957" class="Bound">m</a><a id="1988" class="Symbol">)</a> <a id="1990" href="Tutorials.Thursday.html#1959" class="Bound">p</a>
+
+
+<a id="1994" class="Comment">-- A little on coinductive types</a>
+<a id="2027" class="Comment">--------------------------------</a>
+
+<a id="2061" class="Comment">-- Stolen from https://github.com/pigworker/CS410-17/blob/master/lectures/Lec6Done.agda</a>
+
+<a id="ListT"></a><a id="2150" href="Tutorials.Thursday.html#2150" class="Function">ListT</a> <a id="2156" class="Symbol">:</a> <a id="2158" href="Agda.Primitive.html#326" class="Primitive">Set</a> <a id="2162" class="Symbol">→</a> <a id="2164" href="Agda.Primitive.html#326" class="Primitive">Set</a> <a id="2168" class="Symbol">→</a> <a id="2170" href="Agda.Primitive.html#326" class="Primitive">Set</a>
+<a id="2174" href="Tutorials.Thursday.html#2150" class="Function">ListT</a> <a id="2180" href="Tutorials.Thursday.html#2180" class="Bound">X</a> <a id="2182" href="Tutorials.Thursday.html#2182" class="Bound">B</a> <a id="2184" class="Symbol">=</a> <a id="2186" href="Tutorials.Monday.html#980" class="Record">⊤</a> <a id="2188" href="Tutorials.Monday.html#2629" class="Datatype Operator">⊎</a> <a id="2190" class="Symbol">(</a><a id="2191" href="Tutorials.Thursday.html#2180" class="Bound">X</a> <a id="2193" href="Tutorials.Tuesday.html#1503" class="Function Operator">×</a> <a id="2195" href="Tutorials.Thursday.html#2182" class="Bound">B</a><a id="2196" class="Symbol">)</a>
+
+<a id="2199" class="Keyword">module</a> <a id="List"></a><a id="2206" href="Tutorials.Thursday.html#2206" class="Module">List</a> <a id="2211" class="Keyword">where</a>
+  <a id="2219" class="Keyword">data</a> <a id="List.List"></a><a id="2224" href="Tutorials.Thursday.html#2224" class="Datatype">List</a> <a id="2229" class="Symbol">(</a><a id="2230" href="Tutorials.Thursday.html#2230" class="Bound">A</a> <a id="2232" class="Symbol">:</a> <a id="2234" href="Agda.Primitive.html#326" class="Primitive">Set</a><a id="2237" class="Symbol">)</a> <a id="2239" class="Symbol">:</a> <a id="2241" href="Agda.Primitive.html#326" class="Primitive">Set</a> <a id="2245" class="Keyword">where</a>
+    <a id="List.List.[]"></a><a id="2255" href="Tutorials.Thursday.html#2255" class="InductiveConstructor">[]</a> <a id="2258" class="Symbol">:</a> <a id="2260" href="Tutorials.Thursday.html#2224" class="Datatype">List</a> <a id="2265" href="Tutorials.Thursday.html#2230" class="Bound">A</a>
+    <a id="List.List._∷_"></a><a id="2271" href="Tutorials.Thursday.html#2271" class="InductiveConstructor Operator">_∷_</a> <a id="2275" class="Symbol">:</a> <a id="2277" href="Tutorials.Thursday.html#2230" class="Bound">A</a> <a id="2279" class="Symbol">→</a> <a id="2281" href="Tutorials.Thursday.html#2224" class="Datatype">List</a> <a id="2286" href="Tutorials.Thursday.html#2230" class="Bound">A</a> <a id="2288" class="Symbol">→</a> <a id="2290" href="Tutorials.Thursday.html#2224" class="Datatype">List</a> <a id="2295" href="Tutorials.Thursday.html#2230" class="Bound">A</a>
+
+  <a id="List.mkList"></a><a id="2300" href="Tutorials.Thursday.html#2300" class="Function">mkList</a> <a id="2307" class="Symbol">:</a> <a id="2309" href="Tutorials.Thursday.html#2150" class="Function">ListT</a> <a id="2315" href="Tutorials.Thursday.html#319" class="Generalizable">A</a> <a id="2317" class="Symbol">(</a><a id="2318" href="Tutorials.Thursday.html#2224" class="Datatype">List</a> <a id="2323" href="Tutorials.Thursday.html#319" class="Generalizable">A</a><a id="2324" class="Symbol">)</a> <a id="2326" class="Symbol">→</a> <a id="2328" href="Tutorials.Thursday.html#2224" class="Datatype">List</a> <a id="2333" href="Tutorials.Thursday.html#319" class="Generalizable">A</a>
+  <a id="2337" href="Tutorials.Thursday.html#2300" class="Function">mkList</a> <a id="2344" href="Tutorials.Thursday.html#2344" class="Bound">x</a> <a id="2346" class="Symbol">=</a> <a id="2348" class="Hole">{!!}</a>
+
+  <a id="List.foldr"></a><a id="2356" href="Tutorials.Thursday.html#2356" class="Function">foldr</a> <a id="2362" class="Symbol">:</a> <a id="2364" class="Symbol">(</a><a id="2365" href="Tutorials.Thursday.html#2150" class="Function">ListT</a> <a id="2371" href="Tutorials.Thursday.html#319" class="Generalizable">A</a> <a id="2373" href="Tutorials.Thursday.html#321" class="Generalizable">B</a> <a id="2375" class="Symbol">→</a> <a id="2377" href="Tutorials.Thursday.html#321" class="Generalizable">B</a><a id="2378" class="Symbol">)</a> <a id="2380" class="Symbol">→</a> <a id="2382" href="Tutorials.Thursday.html#2224" class="Datatype">List</a> <a id="2387" href="Tutorials.Thursday.html#319" class="Generalizable">A</a> <a id="2389" class="Symbol">→</a> <a id="2391" href="Tutorials.Thursday.html#321" class="Generalizable">B</a>
+  <a id="2395" href="Tutorials.Thursday.html#2356" class="Function">foldr</a> <a id="2401" href="Tutorials.Thursday.html#2401" class="Bound">alg</a> <a id="2405" href="Tutorials.Thursday.html#2405" class="Bound">xs</a> <a id="2408" class="Symbol">=</a> <a id="2410" class="Hole">{!!}</a>
+
+  <a id="List.list-id"></a><a id="2418" href="Tutorials.Thursday.html#2418" class="Function">list-id</a> <a id="2426" class="Symbol">:</a> <a id="2428" href="Tutorials.Thursday.html#2224" class="Datatype">List</a> <a id="2433" href="Tutorials.Thursday.html#319" class="Generalizable">A</a> <a id="2435" class="Symbol">→</a> <a id="2437" href="Tutorials.Thursday.html#2224" class="Datatype">List</a> <a id="2442" href="Tutorials.Thursday.html#319" class="Generalizable">A</a>
+  <a id="2446" href="Tutorials.Thursday.html#2418" class="Function">list-id</a> <a id="2454" class="Symbol">=</a> <a id="2456" class="Hole">{!!}</a>
+
+  <a id="List.incr"></a><a id="2464" href="Tutorials.Thursday.html#2464" class="Function">incr</a> <a id="2469" class="Symbol">:</a> <a id="2471" href="Tutorials.Thursday.html#2150" class="Function">ListT</a> <a id="2477" href="Tutorials.Thursday.html#319" class="Generalizable">A</a> <a id="2479" href="Tutorials.Monday.html#7200" class="Datatype">ℕ</a> <a id="2481" class="Symbol">→</a> <a id="2483" href="Tutorials.Monday.html#7200" class="Datatype">ℕ</a>
+  <a id="2487" href="Tutorials.Thursday.html#2464" class="Function">incr</a> <a id="2492" href="Tutorials.Thursday.html#2492" class="Bound">x</a> <a id="2494" class="Symbol">=</a> <a id="2496" class="Hole">{!!}</a>
+
+  <a id="List.length"></a><a id="2504" href="Tutorials.Thursday.html#2504" class="Function">length</a> <a id="2511" class="Symbol">:</a> <a id="2513" href="Tutorials.Thursday.html#2224" class="Datatype">List</a> <a id="2518" href="Tutorials.Thursday.html#319" class="Generalizable">A</a> <a id="2520" class="Symbol">→</a> <a id="2522" href="Tutorials.Monday.html#7200" class="Datatype">ℕ</a>
+  <a id="2526" href="Tutorials.Thursday.html#2504" class="Function">length</a> <a id="2533" class="Symbol">=</a> <a id="2535" class="Hole">{!!}</a>
+
+
+<a id="2542" class="Keyword">module</a> <a id="CoList"></a><a id="2549" href="Tutorials.Thursday.html#2549" class="Module">CoList</a> <a id="2556" class="Keyword">where</a>
+  <a id="2564" class="Keyword">record</a> <a id="CoList.CoList"></a><a id="2571" href="Tutorials.Thursday.html#2571" class="Record">CoList</a> <a id="2578" class="Symbol">(</a><a id="2579" href="Tutorials.Thursday.html#2579" class="Bound">A</a> <a id="2581" class="Symbol">:</a> <a id="2583" href="Agda.Primitive.html#326" class="Primitive">Set</a><a id="2586" class="Symbol">)</a> <a id="2588" class="Symbol">:</a> <a id="2590" href="Agda.Primitive.html#326" class="Primitive">Set</a> <a id="2594" class="Keyword">where</a>
+    <a id="2604" class="Keyword">coinductive</a>
+    <a id="2620" class="Keyword">field</a>
+      <a id="CoList.CoList.next"></a><a id="2632" href="Tutorials.Thursday.html#2632" class="Field">next</a> <a id="2637" class="Symbol">:</a> <a id="2639" href="Tutorials.Thursday.html#2150" class="Function">ListT</a> <a id="2645" href="Tutorials.Thursday.html#2579" class="Bound">A</a> <a id="2647" class="Symbol">(</a><a id="2648" href="Tutorials.Thursday.html#2571" class="Record">CoList</a> <a id="2655" href="Tutorials.Thursday.html#2579" class="Bound">A</a><a id="2656" class="Symbol">)</a>
+
+  <a id="2661" class="Keyword">open</a> <a id="2666" href="Tutorials.Thursday.html#2571" class="Module">CoList</a>
+
+  <a id="CoList.[]"></a><a id="2676" href="Tutorials.Thursday.html#2676" class="Function">[]</a> <a id="2679" class="Symbol">:</a> <a id="2681" href="Tutorials.Thursday.html#2571" class="Record">CoList</a> <a id="2688" href="Tutorials.Thursday.html#319" class="Generalizable">A</a>
+  <a id="2692" href="Tutorials.Thursday.html#2676" class="Function">[]</a> <a id="2695" class="Symbol">=</a> <a id="2697" class="Hole">{!!}</a>
+
+  <a id="CoList._∷_"></a><a id="2705" href="Tutorials.Thursday.html#2705" class="Function Operator">_∷_</a> <a id="2709" class="Symbol">:</a> <a id="2711" href="Tutorials.Thursday.html#319" class="Generalizable">A</a> <a id="2713" class="Symbol">→</a> <a id="2715" href="Tutorials.Thursday.html#2571" class="Record">CoList</a> <a id="2722" href="Tutorials.Thursday.html#319" class="Generalizable">A</a> <a id="2724" class="Symbol">→</a> <a id="2726" href="Tutorials.Thursday.html#2571" class="Record">CoList</a> <a id="2733" href="Tutorials.Thursday.html#319" class="Generalizable">A</a>
+  <a id="2737" class="Symbol">(</a><a id="2738" href="Tutorials.Thursday.html#2738" class="Bound">x</a> <a id="2740" href="Tutorials.Thursday.html#2705" class="Function Operator">∷</a> <a id="2742" href="Tutorials.Thursday.html#2742" class="Bound">xs</a><a id="2744" class="Symbol">)</a> <a id="2746" class="Symbol">=</a> <a id="2748" class="Hole">{!!}</a>
+
+  <a id="CoList.unfoldr"></a><a id="2756" href="Tutorials.Thursday.html#2756" class="Function">unfoldr</a> <a id="2764" class="Symbol">:</a> <a id="2766" class="Symbol">(</a><a id="2767" href="Tutorials.Thursday.html#325" class="Generalizable">S</a> <a id="2769" class="Symbol">→</a> <a id="2771" href="Tutorials.Thursday.html#2150" class="Function">ListT</a> <a id="2777" href="Tutorials.Thursday.html#319" class="Generalizable">A</a> <a id="2779" href="Tutorials.Thursday.html#325" class="Generalizable">S</a><a id="2780" class="Symbol">)</a> <a id="2782" class="Symbol">→</a> <a id="2784" href="Tutorials.Thursday.html#325" class="Generalizable">S</a> <a id="2786" class="Symbol">→</a> <a id="2788" href="Tutorials.Thursday.html#2571" class="Record">CoList</a> <a id="2795" href="Tutorials.Thursday.html#319" class="Generalizable">A</a>
+  <a id="2799" href="Tutorials.Thursday.html#2756" class="Function">unfoldr</a> <a id="2807" href="Tutorials.Thursday.html#2807" class="Bound">coalg</a> <a id="2813" href="Tutorials.Thursday.html#2813" class="Bound">s</a> <a id="2815" class="Symbol">=</a> <a id="2817" class="Hole">{!!}</a>
+
+  <a id="CoList.colist-id"></a><a id="2825" href="Tutorials.Thursday.html#2825" class="Function">colist-id</a> <a id="2835" class="Symbol">:</a> <a id="2837" href="Tutorials.Thursday.html#2571" class="Record">CoList</a> <a id="2844" href="Tutorials.Thursday.html#319" class="Generalizable">A</a> <a id="2846" class="Symbol">→</a> <a id="2848" href="Tutorials.Thursday.html#2571" class="Record">CoList</a> <a id="2855" href="Tutorials.Thursday.html#319" class="Generalizable">A</a>
+  <a id="2859" href="Tutorials.Thursday.html#2825" class="Function">colist-id</a> <a id="2869" class="Symbol">=</a> <a id="2871" class="Hole">{!!}</a>
+
+  <a id="CoList.repeat"></a><a id="2879" href="Tutorials.Thursday.html#2879" class="Function">repeat</a> <a id="2886" class="Symbol">:</a> <a id="2888" href="Tutorials.Thursday.html#319" class="Generalizable">A</a> <a id="2890" class="Symbol">→</a> <a id="2892" href="Tutorials.Thursday.html#2571" class="Record">CoList</a> <a id="2899" href="Tutorials.Thursday.html#319" class="Generalizable">A</a>
+  <a id="2903" href="Tutorials.Thursday.html#2879" class="Function">repeat</a> <a id="2910" class="Symbol">=</a> <a id="2912" class="Hole">{!!}</a>
+
+  <a id="CoList.take"></a><a id="2920" href="Tutorials.Thursday.html#2920" class="Function">take</a> <a id="2925" class="Symbol">:</a> <a id="2927" href="Tutorials.Monday.html#7200" class="Datatype">ℕ</a> <a id="2929" class="Symbol">→</a> <a id="2931" href="Tutorials.Thursday.html#2571" class="Record">CoList</a> <a id="2938" href="Tutorials.Thursday.html#319" class="Generalizable">A</a> <a id="2940" class="Symbol">→</a> <a id="2942" href="Tutorials.Thursday.html#2224" class="Datatype">List.List</a> <a id="2952" href="Tutorials.Thursday.html#319" class="Generalizable">A</a>
+  <a id="2956" href="Tutorials.Thursday.html#2920" class="Function">take</a> <a id="2961" href="Tutorials.Thursday.html#2961" class="Bound">n</a> <a id="2963" href="Tutorials.Thursday.html#2963" class="Bound">xs</a> <a id="2966" class="Symbol">=</a> <a id="2968" class="Hole">{!!}</a>
+
+<a id="2974" class="Keyword">module</a> <a id="Stream"></a><a id="2981" href="Tutorials.Thursday.html#2981" class="Module">Stream</a> <a id="2988" class="Keyword">where</a>
+  <a id="2996" class="Keyword">record</a> <a id="Stream.Stream"></a><a id="3003" href="Tutorials.Thursday.html#3003" class="Record">Stream</a> <a id="3010" class="Symbol">(</a><a id="3011" href="Tutorials.Thursday.html#3011" class="Bound">A</a> <a id="3013" class="Symbol">:</a> <a id="3015" href="Agda.Primitive.html#326" class="Primitive">Set</a><a id="3018" class="Symbol">)</a> <a id="3020" class="Symbol">:</a> <a id="3022" href="Agda.Primitive.html#326" class="Primitive">Set</a> <a id="3026" class="Keyword">where</a>
+    <a id="3036" class="Keyword">coinductive</a>
+    <a id="3052" class="Keyword">field</a>
+      <a id="Stream.Stream.head"></a><a id="3064" href="Tutorials.Thursday.html#3064" class="Field">head</a> <a id="3069" class="Symbol">:</a> <a id="3071" href="Tutorials.Thursday.html#3011" class="Bound">A</a>
+      <a id="Stream.Stream.tail"></a><a id="3079" href="Tutorials.Thursday.html#3079" class="Field">tail</a> <a id="3084" class="Symbol">:</a> <a id="3086" href="Tutorials.Thursday.html#3003" class="Record">Stream</a> <a id="3093" href="Tutorials.Thursday.html#3011" class="Bound">A</a>
+
+  <a id="3098" class="Keyword">open</a> <a id="3103" href="Tutorials.Thursday.html#3003" class="Module">Stream</a>
+
+  <a id="Stream.forever"></a><a id="3113" href="Tutorials.Thursday.html#3113" class="Function">forever</a> <a id="3121" class="Symbol">:</a> <a id="3123" href="Tutorials.Thursday.html#319" class="Generalizable">A</a> <a id="3125" class="Symbol">→</a> <a id="3127" href="Tutorials.Thursday.html#3003" class="Record">Stream</a> <a id="3134" href="Tutorials.Thursday.html#319" class="Generalizable">A</a>
+  <a id="3138" href="Tutorials.Thursday.html#3113" class="Function">forever</a> <a id="3146" href="Tutorials.Thursday.html#3146" class="Bound">x</a> <a id="3148" class="Symbol">=</a> <a id="3150" class="Hole">{!!}</a>
+
+  <a id="Stream.unfold"></a><a id="3158" href="Tutorials.Thursday.html#3158" class="Function">unfold</a> <a id="3165" class="Symbol">:</a> <a id="3167" class="Symbol">(</a><a id="3168" href="Tutorials.Thursday.html#325" class="Generalizable">S</a> <a id="3170" class="Symbol">→</a> <a id="3172" href="Tutorials.Thursday.html#319" class="Generalizable">A</a> <a id="3174" href="Tutorials.Tuesday.html#1503" class="Function Operator">×</a> <a id="3176" href="Tutorials.Thursday.html#325" class="Generalizable">S</a><a id="3177" class="Symbol">)</a> <a id="3179" class="Symbol">→</a> <a id="3181" href="Tutorials.Thursday.html#325" class="Generalizable">S</a> <a id="3183" class="Symbol">→</a> <a id="3185" href="Tutorials.Thursday.html#3003" class="Record">Stream</a> <a id="3192" href="Tutorials.Thursday.html#319" class="Generalizable">A</a>
+  <a id="3196" href="Tutorials.Thursday.html#3158" class="Function">unfold</a> <a id="3203" href="Tutorials.Thursday.html#3203" class="Bound">coalg</a> <a id="3209" href="Tutorials.Thursday.html#3209" class="Bound">s</a> <a id="3211" class="Symbol">=</a> <a id="3213" class="Hole">{!!}</a>
+
+
+
+<a id="3221" class="Comment">---------------------------------------------</a>
+<a id="3267" class="Comment">-- If you are interested in more</a>
+<a id="3300" class="Comment">-- Documentation for Agda: https://agda.readthedocs.io/en/v2.6.0.1/index.html</a>
+<a id="3378" class="Comment">-- Programming Language Foundations in Agda: https://plfa.github.io/</a>
+<a id="3447" class="Comment">-- Lots of other nice tutorials online</a>
+<a id="3486" class="Comment">-- The standard library: https://agda.github.io/agda-stdlib/</a>
+</pre></body></html>
+</main>
+
+    <footer>
+      <div>A tutorial by:</div>
+      <div>Uma Zalakain</div>
+      <div>
+  <div>
+    <div>
+      <ul class="list-inline text-center">
+        <li class="list-inline-item">
+          <a href="mailto:ping@umazalakain.info?subject=Agda">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+            </span>
+          </a>
+        </li>
+        <li class="list-inline-item">
+          <a href="http://umazalakain.info/">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fa fa-home fa-stack-1x fa-inverse"></i>
+            </span>
+          </a>
+        </li>
+        <li class="list-inline-item">
+          <a href="https://github.com/umazalakain">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+            </span>
+          </a>
+        </li>
+        <li class="list-inline-item">
+          <a href="https://twitter.com/@typer_uma">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+            </span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+      <div>Organized by:</div>
+      <div>BCAM - Basque Center for Applied Mathematics</div>
+      <div>
+  <div>
+    <div>
+      <ul class="list-inline text-center">
+        <li class="list-inline-item">
+          <a href="https://twitter.com/BCAMBilbao">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+            </span>
+          </a>
+        </li>
+        <li class="list-inline-item">
+          <a href="https://www.youtube.com/user/BCAMchannel">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-youtube fa-stack-1x fa-inverse"></i>
+            </span>
+          </a>
+        </li>
+        <li class="list-inline-item">
+          <a href="https://www.linkedin.com/company/bcam-basque-center-for-applied-mathematics/">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+            </span>
+          </a>
+        </li>
+        <li class="list-inline-item">
+          <a href="https://wp.bcamath.org/news/en/feed/">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+            </span>
+          </a>
+        </li>
+        <li class="list-inline-item">
+          <a href="https://mailchi.mp/31157b82299d/newsletter-subscription">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+            </span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+    </footer>
+  </body>
+</html>
