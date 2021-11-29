@@ -426,6 +426,15 @@ cong f refl = refl
 +-idʳ zero = refl
 +-idʳ (suc x) = cong suc (+-idʳ x)
 
+example₃ : ∀ x → (1 + x) + zero ≡ (1 + x)
+example₃ x = +-idʳ _
+
++-idʳ′ : ∀ {x} → (x + zero) ≡ x
++-idʳ′ {x} = +-idʳ x
+
+example₄ : ∀ x → (1 + x) + zero ≡ (1 + x)
+example₄ x = +-idʳ′
+
 -- Propositional equality is reflexive by construction, here we show it is also symmetric and transitive
 sym : {x y : A} → x ≡ y → y ≡ x
 sym refl = refl
